@@ -2,26 +2,23 @@
 <template>
        <main id="main" class="main_content">
                 <div class="mainWrap">
-                    <div>
-                        
-                    </div>
-                    <section class="block_section banner_section" style="background-image: url('dist/images/slider.jpg');">
+                    <section class="block_section banner_section" style="background-image: url('content/images/slider.jpg');">
                         <div class="banner_content">
                             <div class="banner_logo">
                                 <span>V</span>
                             </div>
                             <div class="banner_heading">
-                                <h1>VANOA</h1>
+                                <h1>{{ Vanoa }}</h1>
                             </div>
                         </div>
-                    </section> -->
+                    </section> 
                     <section class="block_section banner_section">
                         <div class="banner_content">
                             <div class="banner_logo">
                                 <span>V</span>
                             </div>
                             <div class="banner_heading">
-                                <h1>VANOA</h1>
+                                <h1>{{ Vanoa }}</h1>
                             </div>
                         </div>
                     </section>
@@ -33,12 +30,12 @@
                             <div class="row has_gutter">
                                 <div class="column-6 column-mob-12">
                                     <div class="about_image">
-                                    <img :src="content/images/hotel.jpg" alt=""> 
-                                    
+                                    <img v-bind:src="HotelImage"> 
                                     </div>
                                 </div>
                                 <div class="column-6 column-mob-12">
                                     <div class="about_title">
+                                        <h1>{{ AboutTitle }}</h1>
                                         <!-- <?php 
                                             $page = new ShowPages();
                                             $about = $page->get_Page(1);
@@ -46,6 +43,7 @@
                                         <!-- <h1><?php echo $about['title']; ?></h1> -->
                                     </div>
                                     <div class="about_content">
+                                        <p>{{ AboutDescription }}</p>
                                         <!-- <p><?php echo $about['description']; ?></p> -->
                                     </div>
                                 </div>
@@ -55,7 +53,7 @@
                     <section class="block_section services_section">
                         <div class="container">
                             <div class="services_title">
-                                <h1>OUR SERVICES</h1>
+                                <h1>OurServices</h1>
                             </div>
                             <!-- <?php 
                                 $s = new ShowServices();
@@ -67,6 +65,7 @@
                             <div class="row has_gutter">
                                 <div class="column-3 column-mob-12">
                                     <div class="service_title">
+                                        <h1>{{ ServiceTitle }}</h1>
                                         <!-- <h1><?php echo $service['title']; ?></h1> -->
                                     </div>
                                     <div class="service_image">
@@ -77,6 +76,7 @@
                                     <?php endif?> -->
                                     </div>
                                     <div class="service_content">
+                                        <p>{{ ServiceContent }}</p>
                                         <!-- <p><?php echo $service['description']; ?></p> -->
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                     <section class="block_section rooms_section">
                         <div class="container">
                             <div class="rooms_title">
-                                <h1>FAVORITE ROOMS</h1>
+                                <h1>{{ FavoriteRooms }}</h1>
                             </div>
                             <!-- <?php 
                                 $r = new ShowRooms();
@@ -103,6 +103,7 @@
                                     <?php endif?> -->
                                     </div>
                                     <div class="room_title">
+                                        <h1>{{ RoomTitle }}</h1>
                                         <!-- <h1><?php echo $room['title']; ?></h1> -->
                                         <a href="singleRoom.php?id=<?php echo $room['id']; ?>">BOOK NOW</a>
                                     </div>
@@ -115,16 +116,29 @@
                         </div>
                     </section>   
                 </div>
+                 <Footer></Footer>
        </main>
-            
+           
 </template>
 
 <script>
+import Footer from './Footer.vue'
 export default {
-
-  }
-
+    name:'Index',
+      data(){
+         return{
+        Vanoa:'VANOA',
+        HotelImage: '../content/images/hotel.jpg',
+        AboutTitle:'About',
+        AboutDescription:'About Description',
+        OurServices :'OUR SERVICES',
+        ServiceTitle: 'Service',
+        ServiceContent: 'Service Content',
+        FavoriteRooms: 'FAVORITE ROOMS',
+        RoomTitle: 'Room'
+         }
+        }, components:{
+            Footer
+        }
+}
 </script>
-
-
-
