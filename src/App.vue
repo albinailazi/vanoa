@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    <Body />
+   <Header></Header>
+    <router-view></router-view>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Body from './components/Body';
-
-
-require('../content/css/reset.css')
-require('../content/css/style.css')
-require('../content/css/responsive.css')
-
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 export default {
   name: 'App',
   components: {
-    Body
+    Header,Footer
   }
 }
 </script>

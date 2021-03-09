@@ -3,9 +3,11 @@
             <div class="container">
                 <div class="headerWrap">
                     <div class="logo_header">
-                        <a href="index.php">
+                        <router-link class="nav-link" to="/Index.vue">
+                        <a>
                             <span>V</span>anoa
                         </a>
+                        </router-link>
                     </div>
                     <div class="hamburger">
                         <span></span>
@@ -16,19 +18,29 @@
                    
                         <ul>
                             <li>
-                                <a class="<?php active('index.php');?>" href="index.php">Home</a>
+                                <router-link class="nav-link" to="/Index.vue">
+                                <a>Home</a>
+                                 </router-link>
                             </li>
                             <li>
-                                <a class="<?php active('rooms.php');?>" href="rooms.php">Rooms</a>
+                                <router-link class="nav-link" to="/">
+                                <a>Rooms</a>
+                                 </router-link>
                             </li>
                             <li>
-                                <a class="<?php active('services.php');?>" href="services.php">Services</a>
+                               <router-link class="nav-link" to="/">
+                                <a>Services</a>
+                                 </router-link>
                             </li>
                             <li>
-                                <a class="<?php active('about.php');?>" href="about.php">About</a>
+                               <router-link class="nav-link" to="/">
+                                <a>About</a>
+                                 </router-link>
                             </li>
                             <li>
-                                <a class="<?php active('contact.php');?>" href="contact.php">Contact</a>
+                                <router-link class="nav-link" to="/">
+                                <a>Contact</a>
+                                 </router-link>
                             </li>
                            
 
@@ -43,7 +55,8 @@
                             </li>
                             
                         </ul>
-                    
+
+                        
                     </nav>
                 </div>
             </div>
@@ -52,9 +65,7 @@
 
 <script>
 export default {
-  name: 'Header',
-  props: {
-    //msg: String
+
   }
-}
+
 </script>
