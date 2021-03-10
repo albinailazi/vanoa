@@ -32,7 +32,7 @@
         <div class="row has_gutter">
           <div class="column-6 column-mob-12">
             <div class="about_image">
-              <img :src="'/content/images/hotel.jpg'" />
+              <img src="/content/images/hotel.jpg" />
             </div>
           </div>
           <div class="column-6 column-mob-12">
