@@ -25,7 +25,7 @@
               </router-link>
             </li>
             <li>
-              <router-link class="nav-link" to="/">
+              <router-link class="nav-link" to="/services">
                 Services
               </router-link>
             </li>
@@ -39,15 +39,18 @@
                 Contact
               </router-link>
             </li>
-
             <li>
-              <a href="logout.php">Logout</a>
+              <a href="">Login</a>
             </li>
-            <li>
+
+            <!-- <li>
+              <a href="logout.php">Logout</a>
+            </li> -->
+            <!-- <li>
               <router-link class="nav-link" to="/login">
                 Dashboard/Login
               </router-link>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </div>
