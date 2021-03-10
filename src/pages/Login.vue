@@ -19,8 +19,10 @@
                     </div>
                 </form>
                 <div class="login_notregistered">
-                    <p>Not registered?  
-                        <a href="registerForm.php"><u>Create an account</u></a>
+                    <p>Not registered? 
+                        <router-link to="/register">
+                        <u>Create an account</u>
+                        </router-link>
                     </p>
                 </div>
             </div>
