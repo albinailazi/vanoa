@@ -1,8 +1,9 @@
-import Index from '../components/Index.vue'
+import Home from '../components/Home.vue'
+
 
 
 export const routes =[
-    {path:'/components/Index.vue', name:'index', component:Index},
-    //{path:'/header',component:() => /* webpackChunkName:'header' */ Header}
+    {path:'/', name:'home', component:Home},
+        //{path:'/header',component:() => /* webpackChunkName:'header' */ Header}
     
 ]

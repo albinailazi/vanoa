@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="headerWrap">
                     <div class="logo_header">
-                        <router-link class="nav-link" to="/Index.vue">
+                        <router-link class="nav-link" to="/Home">
                         <a>
                             <span>V</span>anoa
                         </a>
@@ -18,7 +18,7 @@
                    
                         <ul>
                             <li>
-                                <router-link class="nav-link" to="/Index.vue">
+                                <router-link class="nav-link" to="/">
                                 <a>Home</a>
                                  </router-link>
                             </li>

@@ -1,4 +1,3 @@
-
 <template>
        <main id="main" class="main_content">
                 <div class="mainWrap">
@@ -11,17 +10,19 @@
                                 <h1>{{ Vanoa }}</h1>
                             </div>
                         </div>
+                        
                     </section> 
-                    <section class="block_section banner_section">
+                    
+                    <!-- <section class="block_section banner_section">
                         <div class="banner_content">
                             <div class="banner_logo">
                                 <span>V</span>
-                            </div>
-                            <div class="banner_heading">
+                            </div> -->
+                            <!-- <div class="banner_heading">
                                 <h1>{{ Vanoa }}</h1>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <section class="block_section about_section">
                         <div class="container">
                             <div class="border_title seperator white">
@@ -30,7 +31,7 @@
                             <div class="row has_gutter">
                                 <div class="column-6 column-mob-12">
                                     <div class="about_image">
-                                    <img v-bind:src="HotelImage"> 
+                                    <img src="HotelImage"/> 
                                     </div>
                                 </div>
                                 <div class="column-6 column-mob-12">
@@ -116,29 +117,35 @@
                         </div>
                     </section>   
                 </div>
-                 <Footer></Footer>
+          
        </main>
            
 </template>
 
+
+
+
 <script>
-import Footer from './Footer.vue'
-export default {
-    name:'Index',
-      data(){
-         return{
-        Vanoa:'VANOA',
-        HotelImage: '../content/images/hotel.jpg',
+
+import '/content/css/style.css';
+import '/content/css/reset.css';
+import '/content/css/responsive.css';
+import HotelImage from '/content/images/hotel.jpg'
+
+ export default {
+     name:'Index',
+       data(){
+          return{
+         Vanoa:'VANOA',
+         HotelImage,
         AboutTitle:'About',
-        AboutDescription:'About Description',
+         AboutDescription:'About Description',
         OurServices :'OUR SERVICES',
-        ServiceTitle: 'Service',
+         ServiceTitle: 'Service',
         ServiceContent: 'Service Content',
         FavoriteRooms: 'FAVORITE ROOMS',
         RoomTitle: 'Room'
-         }
-        }, components:{
-            Footer
+          }
         }
-}
-</script>
+ }
+ </script>
