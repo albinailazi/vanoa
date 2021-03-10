@@ -5,6 +5,8 @@ import About from '../pages/About.vue'
 import Services from '../pages/Services.vue'
 import Contact from '../pages/Contact.vue'
 import Register from '../pages/Register.vue'
+import SingleRoom from '../pages/SingleRoom.vue'
+
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -14,6 +16,7 @@ export const routes =[
     {path:'/services', name:'services', component:Services},
     {path:'/contact', name:'contact', component:Contact},
     {path:'/register', name:'register', component:Register},
+    {path:'/singleroom', name:'singleroom', component:SingleRoom},
     
 
     

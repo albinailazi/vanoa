@@ -28,7 +28,9 @@
                     </div>
                     <div class="login_notregistered">
                         <p>If registered.  
-                            <a href="loginForm.php"><b>Login here</b></a>
+                            <router-link to="/login">
+                            <b>Login here</b>
+                            </router-link>
                         </p>
                     </div>
                 </form> 
