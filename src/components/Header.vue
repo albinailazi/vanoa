@@ -45,14 +45,18 @@
                            
 
                            <li>
-                                <a href="logout.php">Logout</a>
-                            </li>
-                            <li>
-                                <a class="<?php active('loginForm.php');?>" href="loginForm.php">
+                               <a href="logout.php">Login</a>
+                           </li>
+                            <!-- <li>
+                                <a class="<?php active('loginForm.php');?>" href="loginForm.php"> -->
                                     <!-- <?php echo $isAdminLogin ? 'Dashboard' : 'Login' ?> -->
-                                    Dashboard/Login
+                                    <!-- Dashboard/Login
                                 </a>
-                            </li>
+                            </li> -->
+
+                            <!-- <li>
+                                <a href="logout.php">Logout</a>
+                            </li> -->
                             
                         </ul>
 
