@@ -31,7 +31,7 @@
                             <div class="row has_gutter">
                                 <div class="column-6 column-mob-12">
                                     <div class="about_image">
-                                    <img src="HotelImage"/> 
+                                    <img :src="'/content/images/hotel.jpg'"/> 
                                     </div>
                                 </div>
                                 <div class="column-6 column-mob-12">
@@ -127,21 +127,15 @@
 
 <script>
 
-import '/content/css/style.css';
-import '/content/css/reset.css';
-import '/content/css/responsive.css';
-import HotelImage from '/content/images/hotel.jpg'
-
  export default {
      name:'Index',
        data(){
           return{
-         Vanoa:'VANOA',
-         HotelImage,
+        Vanoa:'VANOA',
         AboutTitle:'About',
-         AboutDescription:'About Description',
+        AboutDescription:'About Description',
         OurServices :'OUR SERVICES',
-         ServiceTitle: 'Service',
+        ServiceTitle: 'Service',
         ServiceContent: 'Service Content',
         FavoriteRooms: 'FAVORITE ROOMS',
         RoomTitle: 'Room'

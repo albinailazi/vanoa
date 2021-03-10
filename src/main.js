@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import '../content/css/style.css';
-import '../content/css/reset.css';
-import '../content/css/responsive.css';
 
 
 
