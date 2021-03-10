@@ -1,9 +1,12 @@
-import Home from '../components/Home.vue'
-
-
+import Home from '../pages/Home.vue'
+import Login from '../pages/Login.vue'
+import Rooms from '../pages/Rooms.vue'
+import NotFound from '../pages/NotFound.vue'
 
 export const routes =[
-    {path:'/', name:'home', component:Home},
-        //{path:'/header',component:() => /* webpackChunkName:'header' */ Header}
-    
+    {path:'/', name:'Home', component:Home},
+    {path:'/login', name:'Login', component:Login},
+    {path:'/rooms', name:'Rooms', component:Rooms},
+
+    {path: "/:catchAll(.*)", name: "NotFound", component:NotFound}
 ]
