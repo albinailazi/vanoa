@@ -40,7 +40,9 @@
               </router-link>
             </li>
             <li>
-              <a href="">Login</a>
+              <router-link class="nav-link" to="/login">
+                Login
+              </router-link>
             </li>
 
             <!-- <li>
