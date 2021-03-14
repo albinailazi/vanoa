@@ -63,7 +63,10 @@
                                         <div class="rooms_content">
                                             <!-- <p><?php echo $room['description'] ?> </p> -->
                                                 <div class="room_title ">
-                                                    <a href="singleRoom.php?id=<?php echo $room['id']; ?>">Book now</a>
+                                                    <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>">Book now</a> -->
+                                                    <router-link to="/SingleRoom">
+                                                            {{BookNow}}
+                                                    </router-link>
                                                 </div>
                                         </div>
                                     </div>
@@ -88,11 +91,11 @@ export default {
   data() {
     return {
       Vanoa: "VANOA",
-      BestRooms:"Best Rooms",
-      NoImageSelected:"No Image Selected",
-      Reservations:"Reservations"
+      BestRooms: "Best Rooms",
+      NoImageSelected: "No Image Selected",
+      Reservations: "Reservations",
+      BookNow: "BOOK NOW",
 
-      
     };
   },
 };

@@ -7,7 +7,7 @@
                         <span>V</span>
                     </div>
                     <div class="banner_heading">
-                        <h1>VANOA</h1>
+                        <h1>{{ Vanoa }}</h1>
                     </div>
                 </div>
             </section>
@@ -18,7 +18,7 @@
                             <!-- <?php if ($services[0] ['image']): ?> -->
                                 <img src="<?php echo $services[0] ['image']; ?>" >
                             <!-- <?php else: ?> -->
-                                    <p>No image Selected</p>
+                                    <p>{{ NoImageSelected }}</p>
                             <!-- <?php endif?>    -->
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         <!-- <?php if ($services[1] ['image']): ?> -->
                                 <img src="<?php echo $services[1] ['image']; ?>" >
                             <!-- <?php else: ?> -->
-                                    <p>No image Selected</p>
+                                    <p>{{ NoImageSelected }}</p>
                             <!-- <?php endif?>    -->
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                          <!-- <?php if ($services[2] ['image']): ?> -->
                                 <img src="<?php echo $services[2] ['image']; ?>" >
                             <!-- <?php else: ?> -->
-                                    <p>No image Selected</p>
+                                    <p>{{ NoImageSelected }}</p>
                             <!-- <?php endif?>  -->
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <!-- <?php if ($services[3] ['image']): ?> -->
                                 <img src="<?php echo $services[3] ['image']; ?>" >
                             <!-- <?php else: ?> -->
-                                    <p>No image Selected</p>
+                                    <p>{{ NoImageSelected }}</p>
                             <!-- <?php endif?>  -->
                         </div>
                     </div>
@@ -115,9 +115,15 @@
 <script>
 import Layout from '../components/Layout.vue';
 export default {
-    components: {
-       Layout
+  components: { Layout
    },
-  name: "Services"
+  name: "Services",
+  data() {
+    return {
+      Vanoa: "VANOA",
+      NoImageSelected: "No Image Selected",
+    
+    };
+  },
 };
 </script>

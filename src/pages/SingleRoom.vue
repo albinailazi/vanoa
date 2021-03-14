@@ -1,13 +1,13 @@
 <template>
 <Layout>
       <div class="mainWrap">
-                <section class="block_section banner_section" style="background-image: url('dist/images/singleRoom.jpg');">
+                <section class="block_section banner_section" style="background-image: url('content/images/singleRoom.jpg');">
                     <div class="banner_content">
                         <div class="banner_logo">
                             <span>V</span>
                         </div>
                         <div class="banner_heading">
-                            <h1>VANOA</h1>
+                            <h1>{{ Vanoa }}</h1>
                         </div>
                     </div>
                 </section>
@@ -19,14 +19,14 @@
                             </div>
                             <div class="rooms_sidebar">
                                 <li class="top_rooms rooms_price column-mob-12">
-                                    <h2>Best Rooms</h2>
+                                    <h2>{{ BestRooms }}</h2>
                                      <!-- <?php foreach ($allRooms as $oneRoom): ?> -->
                                     <ul class="rooms_products">
                                         <li class="rooms_display">
                                              <!-- <?php if ($oneRoom['image']): ?> -->
                                                 <img width="60" height="60" src="<?php echo $oneRoom['image']; ?>"  >
                                                     <!-- <?php else: ?> -->
-                                                        <p>No image Selected</p>
+                                                        <p>{{ NoImageSelected }}</p>
                                             <!-- <?php endif?> -->
                                             <!-- <a href="singleRoom.php?id=<?php echo $oneRoom['id']; ?>"><?php echo $oneRoom['title']  ?></a>
                                             <span><?php echo $oneRoom['price']  ?></span> -->
@@ -34,7 +34,7 @@
                                     </ul>
                                 <!-- <?php endforeach; ?> -->
                                 <div class="rooms_reservation">
-                                    <p>Reservations</p>
+                                    <p>{{ Reservations }}</p>
                                     <span>044-100-100</span>
                                 </div>
                             </li>
@@ -46,7 +46,7 @@
                                             <!-- <?php if ($room['image']): ?> -->
                                                 <img src="<?php echo $room['image']; ?>" >
                                                     <!-- <?php else: ?> -->
-                                                        <p>No image Selected</p>
+                                                        <p>{{ NoImageSelected }}</p>
                                             <!-- <?php endif?> -->
                                         </div>
                                     </div>
@@ -77,9 +77,17 @@
 <script>
 import Layout from '../components/Layout.vue';
 export default {
-    components: {
-       Layout
+  components: { Layout
    },
-  name: "SingleRoom"
+  name: "SingleRoom",
+  data() {
+    return {
+      Vanoa: "VANOA",
+      NoImageSelected: "No Image Selected",
+      BestRoms: "Best Rooms",
+      Reservations: "Reservations",
+    
+    };
+  },
 };
 </script>

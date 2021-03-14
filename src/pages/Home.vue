@@ -109,15 +109,20 @@
             <div class="room_title">
               <h1>{{ RoomTitle }}</h1>
               <!-- <h1><?php echo $room['title']; ?></h1> -->
-              <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
-                >BOOK NOW</a
-              >
+              <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
+                >BOOK NOW</a -->
+              <router-link to="/SingleRoom">
+                {{BookNow}}
+              </router-link>
             </div>
           </div>
         </div>
         <!-- <?php endforeach; ?> -->
         <div class="rooms_view">
-          <a href="rooms.php">VIEW ALL ROOMS</a>
+          <!-- <a href="rooms.php">VIEW ALL ROOMS</a> -->
+          <router-link to="/Rooms">
+            {{ViewAllRooms}}
+          </router-link>
         </div>
       </div>
     </section>
@@ -143,6 +148,8 @@ export default {
       ServiceContent: "Service Content",
       FavoriteRooms: "FAVORITE ROOMS",
       RoomTitle: "Room",
+      ViewAllRooms: "VIEW ALL ROOMS",
+      BookNow: "BOOK NOW",
     };
   },
 };
