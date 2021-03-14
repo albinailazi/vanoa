@@ -1,4 +1,6 @@
 <template>
+  <Layout>
+
   <div class="Home">
     <section
       class="block_section banner_section"
@@ -120,11 +122,17 @@
       </div>
     </section>
   </div>
+
+  </Layout>
 </template>
 
 <script>
+import Layout from '../components/Layout';
 export default {
   name: "Index",
+  components:{
+    Layout
+  },
   data() {
     return {
       Vanoa: "VANOA",

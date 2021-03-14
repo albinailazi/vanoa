@@ -1,4 +1,5 @@
 <template>
+<Layout>
     <div>
      <section class="block_section banner_section" style="background-image: url('content/images/services_banner.jpg');">
                 <div class="banner_content">
@@ -108,8 +109,15 @@
             </section> 
    
     </div>
+</Layout>
 </template>
 
 <script>
-export default {};
+import Layout from '../components/Layout.vue';
+export default {
+    components: {
+       Layout
+   },
+  name: "Services"
+};
 </script>

@@ -1,4 +1,5 @@
 <template>
+<Layout>
       <div class="mainWrap">
                 <section class="block_section banner_section" style="background-image: url('dist/images/singleRoom.jpg');">
                     <div class="banner_content">
@@ -70,4 +71,15 @@
                     </section>
                 </div>
             </div>
+</Layout>
 </template>
+
+<script>
+import Layout from '../components/Layout.vue';
+export default {
+    components: {
+       Layout
+   },
+  name: "SingleRoom"
+};
+</script>

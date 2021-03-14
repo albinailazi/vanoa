@@ -1,7 +1,8 @@
 <template>
+    <Layout>
     <div class="mainWrap">
                 <section class="block_section contact_section">
-                    <div id="map" style="width:100%; height: 400px; display:none;"></div>
+                    <!-- <div id="map" style="width:100%; height: 400px; display:none;"></div> -->
 
                     <!-- <iframe style="width:100%; height: 600px; border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9703.63681699247!2d21.15272827883984!3d42.661079446194044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee1325c4fbb%3A0x5219d01d01e788dc!2sQendra%2C%20Pristina!5e1!3m2!1sen!2s!4v1594743120327!5m2!1sen!2s" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     <script>
@@ -61,4 +62,13 @@
                     </div>
                 </section>
             </div>
+            </Layout>
 </template>
+
+<script>
+import Layout from '../components/Layout.vue';
+export default {
+  components: { Layout
+   },
+  name: "Contact"
+};

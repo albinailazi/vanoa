@@ -1,4 +1,5 @@
 <template>
+<Layout>
   <div class="About">
     <section
       class="block_section banner_section"
@@ -74,10 +75,14 @@
       </div>
     </section>
   </div>
+</Layout>
 </template>
 
 <script>
+import Layout from '../components/Layout.vue';
 export default {
+  components: { Layout
+   },
   name: "About",
   data() {
     return {
