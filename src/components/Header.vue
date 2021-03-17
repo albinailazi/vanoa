@@ -39,10 +39,19 @@
                 Contact
               </router-link>
             </li>
-            <li>
+            <li v-if="!user">
               <router-link class="nav-link" to="/login">
                 Login
               </router-link>
+            </li>
+            <li v-if="user">
+              <a
+                href="javascript:void(0)"
+                class="nav-link"
+                v-on:click="onLogout"
+              >
+                Logout
+              </a>
             </li>
 
             <!-- <li>
@@ -61,5 +70,28 @@
 </template>
 
 <script>
-export default {};
+import API from "../api/api";
+import { mapState } from "vuex";
+import store from "../store";
+import * as type from "../types";
+
+export default {
+  methods: {
+    onLogout() {
+      window.localStorage.removeItem("VANOA_USER");
+      store.dispatch({
+        type: type.AddUser,
+        user: null,
+      });
+      API.defaults.headers.common.Authorization = null;
+
+      this.$router.push({ name: "Login" });
+    },
+  },
+  computed: {
+    ...mapState({
+      user: (state) => state.user,
+    }),
+  },
+};
 </script>
