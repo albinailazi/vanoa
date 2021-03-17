@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueGoogleMap from 'vuejs-google-maps'
+import { routes } from './router/routes'
+import store from './store.js'
 
 
 
@@ -11,8 +13,6 @@ Vue.use(VueGoogleMap, {
     libraries: ['...']
   }
 })
-//fajlli routes importohet te kjo pjese dhe ne at file kemi deklaruar routat e ndryshem se cila route te cila komponent dergon gjate klikut
-import { routes } from './router/routes'
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
@@ -22,5 +22,6 @@ const router = new VueRouter({
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
