@@ -6,6 +6,7 @@ import Services from '../pages/Services.vue'
 import Contact from '../pages/Contact.vue'
 import Register from '../pages/Register.vue'
 import SingleRoom from '../pages/SingleRoom.vue'
+import User from '../pages/User.vue'
 
 
 export const routes =[
@@ -17,6 +18,7 @@ export const routes =[
     {path:'/contact', name:'contact', component:Contact},
     {path:'/register', name:'register', component:Register},
     {path:'/singleroom', name:'singleroom', component:SingleRoom},
+    {path:'/user', name:'user', component:User},
     
 
     
