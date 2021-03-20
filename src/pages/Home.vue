@@ -65,10 +65,11 @@
                                 foreach ($services as $service):
                             ?> -->
         </div>
-        <div class="row has_gutter"
-              v-for="service in services"
-              v-bind="services"
-              v-bind:key="service._id"
+        <div
+          class="row has_gutter"
+          v-for="service in services"
+          v-bind="services"
+          v-bind:key="service._id"
         >
           <div class="column-3 column-mob-12">
             <div class="service_title">
@@ -76,8 +77,8 @@
               <!-- <h1><?php echo $service['title']; ?></h1> -->
             </div>
             <div class="service_image">
-             <img v-bind:src="service.image" />
-                    <p v-if="!service.image">{{ NoImageSelected }}</p>
+              <img v-bind:src="service.image" />
+              <p v-if="!service.image">{{ NoImageSelected }}</p>
             </div>
             <div class="service_content">
               <p>{{ service.description }}</p>
@@ -97,22 +98,24 @@
                                 $rooms = $r->get_Rooms();
                                 foreach ($rooms as $room):
                             ?> -->
-          
-          <div class="row has_gutter">
+
+          <div
+            class="row has_gutter"
+            v-for="room in rooms"
+            v-bind="rooms"
+            v-bind:key="room"
+          >
             <div class="column-3 column-mob-12">
               <div class="service_image">
-                <!-- <?php if ($room['image']): ?>
-                                        <img src="<?php echo $room['image']; ?>">
-                                            <?php else: ?>
-                                                <p>No image Selected</p>
-                                    <?php endif?> -->
+                <img v-bind:src="room.image" />
+                <p v-if="!room.image">{{ NoImageSelected }}</p>
               </div>
               <div class="room_title">
-                <h1>{{ RoomTitle }}</h1>
+                <h1>{{ room.title }}</h1>
                 <!-- <h1><?php echo $room['title']; ?></h1> -->
                 <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
                 >BOOK NOW</a -->
-                <router-link to="/SingleRoom">
+                <router-link :to="'/singleroom/' + room.slug">
                   {{ BookNow }}
                 </router-link>
               </div>
@@ -150,8 +153,9 @@ export default {
       FavoriteRooms: "FAVORITE ROOMS",
       RoomTitle: "Room",
       ViewAllRooms: "VIEW ALL ROOMS",
-          rooms: [],
-          services: [],
+      BookNow:"Book now",
+      rooms: [],
+      services: [],
     };
   },
   methods: {
@@ -165,7 +169,7 @@ export default {
           console.log("error", error);
         });
     },
-     fetchServices() {
+    fetchServices() {
       API.get("service/get-all")
         .then((response) => {
           console.log(response);
