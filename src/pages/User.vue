@@ -3,9 +3,10 @@
  <div class="Home">
     <section
       class="block_section banner_section"
-      style="background-image: url('content/images/slider.jpg');">
-     
+      style="background: #333;">
+
         <div style = "background:white; margin-top:250px; margin-right:300px; margin-left:300px; box-sizing: border-box; background:white; border-radius: 0.5rem;">
+            
             <table> 
             <thead>
                 <tr >
