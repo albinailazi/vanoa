@@ -24,11 +24,11 @@
               <li class="top_rooms rooms_price column-mob-12">
                 <h2>{{ BestRooms }}</h2>
                 <!-- <?php foreach ($allRooms as $room): ?> -->
-                <ul class="rooms_products"
-                    
-                v-for="room in rooms"
-                v-bind="rooms"
-                v-bind:key="room._id"
+                <ul
+                  class="rooms_products"
+                  v-for="room in rooms"
+                  v-bind="rooms"
+                  v-bind:key="room._id"
                 >
                   <li class="rooms_display">
                     <!-- <?php if ($room['image']): ?> 
@@ -36,14 +36,13 @@
                       
                       src="<?php echo $room['image']; ?>"
                     />-->
-                    <img width="60"
-                      height="60" v-bind:src="room.image" />
+                    <img width="60" height="60" v-bind:src="room.image" />
                     <p v-if="!room.image">{{ NoImageSelected }}</p>
                     <!-- <?php endif?> -->
-                     <router-link :to="'/singleroom/' + room.slug">
-                        {{ room.title }}
-                      </router-link>
-                    <span> {{room.price}}</span> 
+                    <router-link :to="'/singleroom/' + room.slug">
+                      {{ room.title }}
+                    </router-link>
+                    <span> {{ room.price }}</span>
                   </li>
                 </ul>
                 <!-- <?php endforeach; ?> -->
@@ -71,8 +70,8 @@
                 <div class="column-8 column-mob-12">
                   <div class="rooms_title">
                     <router-link :to="'/singleroom/' + room.slug">
-                        {{ room.title }}
-                      </router-link>
+                      {{ room.title }}
+                    </router-link>
                     <div class="rooms_price">
                       <span>{{ room.price }}</span>
                     </div>
@@ -126,8 +125,8 @@ export default {
         });
     },
   },
-  mounted(){
-      this.fetchRooms();
+  mounted() {
+    this.fetchRooms();
   },
 };
 </script>
