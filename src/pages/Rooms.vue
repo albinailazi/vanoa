@@ -63,9 +63,11 @@
                 </div>
                 <div class="column-8 column-mob-12">
                   <div class="rooms_title">
-                    <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"><?php echo $room['title'] ?></a> -->
+                    <router-link :to="'/singleroom/' + room.slug">
+                        {{ room.title }}
+                      </router-link>
                     <div class="rooms_price">
-                      <span>{{ room.title }}</span>
+                      <span>{{ room.price }}</span>
                     </div>
                   </div>
                   <div class="rooms_content">
