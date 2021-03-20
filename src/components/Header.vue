@@ -44,6 +44,19 @@
                 Login
               </router-link>
             </li>
+
+            <li v-if="user">
+               <router-link class="nav-link" to="/user">
+                Profile
+              </router-link>
+            </li>
+
+             <li v-if="user">
+               <router-link class="nav-link" to="/admin">
+                Dashboard
+              </router-link>
+            </li>
+
             <li v-if="user">
               <a
                 href="javascript:void(0)"
@@ -53,6 +66,7 @@
                 Logout
               </a>
             </li>
+            
 
             <!-- <li>
               <a href="logout.php">Logout</a>
