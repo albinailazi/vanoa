@@ -51,6 +51,12 @@
               </router-link>
             </li>
 
+             <li v-if="user">
+               <router-link class="nav-link" to="/admin">
+                Dashboard
+              </router-link>
+            </li>
+
             <li v-if="user">
               <a
                 href="javascript:void(0)"

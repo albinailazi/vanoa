@@ -7,7 +7,7 @@ import Contact from '../pages/Contact.vue'
 import Register from '../pages/Register.vue'
 import SingleRoom from '../pages/SingleRoom.vue'
 import User from '../pages/User.vue'
-
+import Admin from '../pages/Admin.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -19,6 +19,7 @@ export const routes =[
     {path:'/register', name:'register', component:Register},
     {path:'/singleroom', name:'singleroom', component:SingleRoom},
     {path:'/user', name:'user', component:User},
+    {path:'/admin', name:'admin', component:Admin},
     
 
     
