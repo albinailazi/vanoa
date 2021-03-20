@@ -24,19 +24,26 @@
               <li class="top_rooms rooms_price column-mob-12">
                 <h2>{{ BestRooms }}</h2>
                 <!-- <?php foreach ($allRooms as $room): ?> -->
-                <ul class="rooms_products">
+                <ul class="rooms_products"
+                    
+                v-for="room in rooms"
+                v-bind="rooms"
+                v-bind:key="room._id"
+                >
                   <li class="rooms_display">
-                    <!-- <?php if ($room['image']): ?> -->
+                    <!-- <?php if ($room['image']): ?> 
                     <img
-                      width="60"
-                      height="60"
+                      
                       src="<?php echo $room['image']; ?>"
-                    />
-                    <!-- <?php else: ?> -->
-                    <p>{{ NoImageSelected }}</p>
+                    />-->
+                    <img width="60"
+                      height="60" v-bind:src="room.image" />
+                    <p v-if="!room.image">{{ NoImageSelected }}</p>
                     <!-- <?php endif?> -->
-                    <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"><?php echo $room['title'] ?></a> -->
-                    <!-- <span> <?php echo $room['price'] ?></span> -->
+                     <router-link :to="'/singleroom/' + room.slug">
+                        {{ room.title }}
+                      </router-link>
+                    <span> {{room.price}}</span> 
                   </li>
                 </ul>
                 <!-- <?php endforeach; ?> -->
