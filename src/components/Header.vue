@@ -52,7 +52,7 @@
             </li>
 
              <li v-if="user">
-               <router-link class="nav-link" to="/admin">
+               <router-link class="nav-link" to="/UserDashboard">
                 Dashboard
               </router-link>
             </li>

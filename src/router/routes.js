@@ -8,6 +8,8 @@ import Register from '../pages/Register.vue'
 import SingleRoom from '../pages/SingleRoom.vue'
 import User from '../pages/User.vue'
 import Admin from '../pages/Admin.vue'
+import UserDashboard from '../pages/UserDashboard.vue'
+import RoomsDashboard from '../pages/RoomsDashboard.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -20,6 +22,8 @@ export const routes =[
     {path:'/singleroom', name:'singleroom', component:SingleRoom},
     {path:'/user', name:'user', component:User},
     {path:'/admin', name:'admin', component:Admin},
+    {path:'/userDashboard', name:'userDashboard', component:UserDashboard},
+    {path:'/roomsDashboard', name:'roomsDashboard', component:RoomsDashboard},
     
 
     

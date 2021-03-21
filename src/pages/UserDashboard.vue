@@ -2,13 +2,36 @@
 <Layout>
     <div class="Home">
     <section class="block_section banner_section" style="background-color:white;">
-      <div style="margin-top:200px; font-size: 14px;  padding-bottom:20px;
+      <div style="margin-top:200px; font-size: 14px;  
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300; color:#333; opacity:100;">
-    
-    <router-link to="/UserDashboard" style="font-size: 30px;">
-            User Table
+    <table>
+        <th style="padding-left:850px;">
+            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
+            Users |
           </router-link>
+        </th>
+       <hr/>
+         <th> 
+            <router-link class="nav-link" to="/RoomsDashboard" style="font-size: 30px; padding-top:20px;">
+            Rooms |
+          </router-link>
+        </th>
+          <hr/>
+         <th> 
+            <router-link class="nav-link" to="/Dashboard" style="font-size: 30px; padding-top:20px;">
+            Services |
+          </router-link>
+        </th>
+          <hr/>
+         <th> 
+            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
+            Contacts |
+          </router-link>
+        </th>
+   
+        
+          </table>
     <div class="container" style="background:#222;  margin-right:10px; margin-left:36px; box-sizing: border-box;  border-radius: 0.5rem;">
       
 <table>
