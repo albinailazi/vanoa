@@ -26,7 +26,7 @@
 
               <div class="mySlides fadeSlider">
                 <img
-                  src="/content/images/aboutUs_hotel.jpg"
+                  v-bind:src="'/content/images/aboutUs_hotel.jpg'"
                   style="width:500px;height:300px;"
                 />
               </div>
@@ -87,13 +87,8 @@ export default {
   data() {
     return {
       Vanoa: "VANOA",
-      AboutTitle: "About",
-      AboutDescription: "About Description",
-      OurServices: "OUR SERVICES",
-      ServiceTitle: "Service",
-      ServiceContent: "Service Content",
-      FavoriteRooms: "FAVORITE ROOMS",
-      RoomTitle: "Room",
+      AboutTitle: "About Us",
+      AboutDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod rerum voluptates, sequi porro corrupti dignissimos fugit qui alias ea ducimus officiis odio aperiam mollitia? Fuga ratione libero fugit eveniet sunt?",
     };
   },
 };
