@@ -14,13 +14,13 @@
         </th>
        <hr/>
          <th> 
-            <router-link class="nav-link" to="/RoomsDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link class="nav-link" to="/RoomDashboard" style="font-size: 30px; padding-top:20px;">
             Rooms |
           </router-link>
         </th>
           <hr/>
          <th> 
-            <router-link class="nav-link" to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link class="nav-link" to="/ServiceDashboard" style="font-size: 30px; padding-top:20px;">
             Services |
           </router-link>
         </th>

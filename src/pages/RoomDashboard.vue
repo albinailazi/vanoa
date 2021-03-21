@@ -4,9 +4,12 @@
     <section class="block_section banner_section" style="background-color:white;">
       <div style="margin-top:200px; font-size: 14px;  
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300; color:#333; opacity:100;">
+	font-weight: 300; color:#333;">
+   <router-link to="/AddRoom" style="float:left; padding-left:40px; font-size:20px; ">
+         Add Room
+          </router-link>
     <table>
-        <th style="padding-left:850px;">
+        <th style="padding-left:732px;">
             <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
             Users |
           </router-link>
@@ -19,7 +22,7 @@
         </th>
           <hr/>
          <th> 
-            <router-link to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ServiceDashboard" style="font-size: 30px; padding-top:20px;">
             Services |
           </router-link>
         </th>
@@ -32,7 +35,7 @@
    
         
           </table>
-    <div class="container" style="background:#222;  margin-right:10px; margin-left:36px; box-sizing: border-box;  border-radius: 0.5rem;">
+    <div class="" style="background:#222; border-radius: 0.5rem;">
       
 <table>
     
@@ -41,6 +44,7 @@
                 
         <th style="padding:10px; font-color:white;">Title</th>
         <th style="padding:10px;">Description</th>
+        <th style="padding:10px;">Price</th>
         <th style="padding:10px;">Image</th>
         <th style="padding:10px;">Created At</th>
         <th style="padding:10px;">Updated At</th>
@@ -48,13 +52,16 @@
             </thead>
 
             <tbody style="color:white;">
-                <tr v-for="service in Service" :key="service._id">
+                <tr v-for="room in Room" :key="room._id">
                   
-                    <td style="padding:10px;">{{ service.title }}</td>
-                    <td style="padding:10px;">{{ service.description }}</td>
-                    <td style="padding:10px;">{{ service.image }}</td>
-                    <td style="padding:10px;">{{ service.createdAt }}</td>
-                    <td style="padding:10px;">{{ service.updatedAt }}</td>
+                    <td style="padding:10px;">{{ room.title }}</td>
+                    <td style="padding:10px;">{{ room.description }}</td>
+                    <td style="padding:10px;">{{ room.price }}</td>
+                    <td style="padding:10px;">{{ room.image }}</td>
+                    <td style="padding:10px;">{{ room.createdAt }}</td>
+                    <td style="padding:10px;">{{ room.updatedAt }}</td>
+                    <button @click="editRoom(room);">Edit</button>
+                    <button type="button" style=" margin-left:10px;" @click="deleteRoom(room)">Delete</button>
                 </tr>
             </tbody>
         </table>
@@ -74,28 +81,49 @@
  <script>
  /* eslint-disable */
 
- import API from "../api/api";
+ import API, { prepareAuthorization }  from "../api/api";
 import Layout from '../components/Layout.vue';
+
      export default{
   components: { Layout },
-         name:'ServicesDashboard',
-          components:{
-    Layout
-  },
+         name:'RoomDashboard',
          data() {
              return{
-                 Service: [],
+                VANOA: 'Vanoa',
+                 Room: [],
              }
          },
-         mounted() {
-             API.get('service/get-all')
+methods: {
+    deleteRoom(room) {
+      prepareAuthorization();
+      API.delete('room/delete',{data: room})
+        .then(response => {
+          this.getAllRooms();
+        })
+         .catch((error) => {
+                 console.log(error); 
+             });
+    },
+
+    getAllRooms() {
+      prepareAuthorization();
+      API.get('room/get-all')
              .then((response) =>{
-                 console.log(response.data.services);
-                 this.Service = response.data.services;
+                 this.Room = response.data.rooms;
              })
              .catch((error) => {
                  console.log(error); 
              });
+    },
+
+    editRoom(room) {
+      this.$router.push({name: "roomEdit", params: {
+        room: room
+      }});
+    }
+},
+         mounted() {
+             this.getAllRooms();
          }
      }
  </script>

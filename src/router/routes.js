@@ -9,10 +9,13 @@ import SingleRoom from '../pages/SingleRoom.vue'
 import User from '../pages/User.vue'
 import Admin from '../pages/Admin.vue'
 import UserDashboard from '../pages/UserDashboard.vue'
-import RoomsDashboard from '../pages/RoomsDashboard.vue'
-import ServicesDashboard from '../pages/ServicesDashboard.vue'
+import RoomDashboard from '../pages/RoomDashboard.vue'
+import ServiceDashboard from '../pages/ServiceDashboard.vue'
 import AddUser from '../pages/AddUser.vue'
 import UserEdit from '../pages/UserEdit.vue'
+import AddRoom from '../pages/AddRoom.vue'
+import RoomEdit from '../pages/RoomEdit.vue'
+import ServiceEdit from '../pages/ServiceEdit.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -26,10 +29,14 @@ export const routes =[
     {path:'/user', name:'user', component:User},
     {path:'/admin', name:'admin', component:Admin},
     {path:'/userDashboard', name:'userDashboard', component:UserDashboard},
-    {path:'/roomsDashboard', name:'roomsDashboard', component:RoomsDashboard},
-    {path:'/servicesDashboard', name:'servicesDashboard', component:ServicesDashboard},
+    {path:'/roomDashboard', name:'roomDashboard', component:RoomDashboard},
+    {path:'/serviceDashboard', name:'serviceDashboard', component:ServiceDashboard},
     {path:'/addUser', name:'addUser', component:AddUser},
     {path:'/userEdit', name:'userEdit', component:UserEdit},
+    {path:'/addRoom', name:'addRoom', component:AddRoom},
+    {path:'/roomEdit', name:'roomEdit', component:RoomEdit},
+    {path:'/serviceEdit', name:'serviceEdit', component:ServiceEdit},
+
 
     
 
