@@ -1,142 +1,146 @@
 <template>
   <Layout>
-
-  <div class="Home">
-    <section
-      class="block_section banner_section"
-      style="background-image: url('content/images/slider.jpg');"
-    >
-      <div class="banner_content">
-        <div class="banner_logo">
-          <span>V</span>
+    <div class="Home">
+      <section
+        class="block_section banner_section"
+        style="background-image: url('content/images/slider.jpg')"
+      >
+        <div class="banner_content">
+          <div class="banner_logo">
+            <span>V</span>
+          </div>
+          <div class="banner_heading">
+            <h1>{{ Vanoa }}</h1>
+          </div>
         </div>
-        <div class="banner_heading">
-          <h1>{{ Vanoa }}</h1>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- <section class="block_section banner_section">
+      <!-- <section class="block_section banner_section">
                         <div class="banner_content">
                             <div class="banner_logo">
                                 <span>V</span>
                             </div> -->
-    <!-- <div class="banner_heading">
+      <!-- <div class="banner_heading">
                                 <h1>{{ Vanoa }}</h1>
                             </div>
                         </div>
                     </section> -->
-    <section class="block_section about_section">
-      <div class="container">
-        <div class="border_title seperator white">
-          <span>V</span>
-        </div>
-        <div class="row has_gutter">
-          <div class="column-6 column-mob-12">
-            <div class="about_image">
-              <img src="/content/images/hotel.jpg" />
-            </div>
+      <section class="block_section about_section">
+        <div class="container">
+          <div class="border_title seperator white">
+            <span>V</span>
           </div>
-          <div class="column-6 column-mob-12">
-            <div class="about_title">
-              <h1>{{ AboutTitle }}</h1>
-              <!-- <?php 
+          <div class="row has_gutter">
+            <div class="column-6 column-mob-12">
+              <div class="about_image">
+                <img src="/content/images/hotel.jpg" />
+              </div>
+            </div>
+            <div class="column-6 column-mob-12">
+              <div class="about_title">
+                <h1>{{ AboutTitle }}</h1>
+                <!-- <?php 
                                             $page = new ShowPages();
                                             $about = $page->get_Page(1);
                                         ?> -->
-              <!-- <h1><?php echo $about['title']; ?></h1> -->
-            </div>
-            <div class="about_content">
-              <p>{{ AboutDescription }}</p>
-              <!-- <p><?php echo $about['description']; ?></p> -->
+                <!-- <h1><?php echo $about['title']; ?></h1> -->
+              </div>
+              <div class="about_content">
+                <p>{{ AboutDescription }}</p>
+                <!-- <p><?php echo $about['description']; ?></p> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="block_section services_section">
-      <div class="container">
-        <div class="services_title">
-          <h1>OurServices</h1>
-        </div>
-        <!-- <?php 
+      </section>
+      <section class="block_section services_section">
+        <div class="container">
+          <div class="services_title">
+            <h1>OurServices</h1>
+          </div>
+          <!-- <?php 
                                 $s = new ShowServices();
                                 $services = $s->get_Services();
 
                                 foreach ($services as $service):
                             ?> -->
-      </div>
-      <div class="row has_gutter">
-        <div class="column-3 column-mob-12">
-          <div class="service_title">
-            <h1>{{ ServiceTitle }}</h1>
-            <!-- <h1><?php echo $service['title']; ?></h1> -->
-          </div>
-          <div class="service_image">
-            <!-- <?php if ($service['image']): ?>
-                                        <img src="<?php echo $service['image']; ?>">
-                                            <?php else: ?>
-                                                <p>No image Selected</p>
-                                    <?php endif?> -->
-          </div>
-          <div class="service_content">
-            <p>{{ ServiceContent }}</p>
-            <!-- <p><?php echo $service['description']; ?></p> -->
-          </div>
         </div>
-      </div>
-      <!-- <?php endforeach; ?> -->
-    </section>
-    <section class="block_section rooms_section">
-      <div class="container">
-        <div class="rooms_title">
-          <h1>{{ FavoriteRooms }}</h1>
-        </div>
-        <!-- <?php 
-                                $r = new ShowRooms();
-                                $rooms = $r->get_Rooms();
-                                foreach ($rooms as $room):
-                            ?> -->
-        <div class="row has_gutter">
+        <div
+          class="row has_gutter"
+          v-for="service in services"
+          v-bind="services"
+          v-bind:key="service._id"
+        >
           <div class="column-3 column-mob-12">
-            <div class="service_image">
-              <!-- <?php if ($room['image']): ?>
-                                        <img src="<?php echo $room['image']; ?>">
-                                            <?php else: ?>
-                                                <p>No image Selected</p>
-                                    <?php endif?> -->
+            <div class="service_title">
+              <h1>{{ service.title }}</h1>
+              <!-- <h1><?php echo $service['title']; ?></h1> -->
             </div>
-            <div class="room_title">
-              <h1>{{ RoomTitle }}</h1>
-              <!-- <h1><?php echo $room['title']; ?></h1> -->
-              <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
-                >BOOK NOW</a -->
-              <router-link to="/SingleRoom">
-                {{BookNow}}
-              </router-link>
+            <div class="service_image">
+              <img v-bind:src="service.image" />
+              <p v-if="!service.image">{{ NoImageSelected }}</p>
+            </div>
+            <div class="service_content">
+              <p>{{ service.description }}</p>
+              <!-- <p><?php echo $service['description']; ?></p> -->
             </div>
           </div>
         </div>
         <!-- <?php endforeach; ?> -->
-        <div class="rooms_view">
-          <!-- <a href="rooms.php">VIEW ALL ROOMS</a> -->
-          <router-link to="/Rooms">
-            {{ViewAllRooms}}
-          </router-link>
-        </div>
-      </div>
-    </section>
-  </div>
+      </section>
+      <section class="block_section rooms_section">
+        <div class="container">
+          <div class="rooms_title">
+            <h1>{{ FavoriteRooms }}</h1>
+          </div>
+          <!-- <?php 
+                                $r = new ShowRooms();
+                                $rooms = $r->get_Rooms();
+                                foreach ($rooms as $room):
+                            ?> -->
 
+          <div
+            class="row has_gutter"
+            v-for="room in rooms"
+            v-bind="rooms"
+            v-bind:key="room"
+          >
+            <div class="column-3 column-mob-12">
+              <div class="service_image">
+                <img v-bind:src="room.image" />
+                <p v-if="!room.image">{{ NoImageSelected }}</p>
+              </div>
+              <div class="room_title">
+                <h1>{{ room.title }}</h1>
+                <!-- <h1><?php echo $room['title']; ?></h1> -->
+                <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
+                >BOOK NOW</a -->
+                <router-link :to="'/singleroom/' + room.slug">
+                  {{ BookNow }}
+                </router-link>
+              </div>
+            </div>
+          </div>
+          <!-- <?php endforeach; ?> -->
+          <div class="rooms_view">
+            <!-- <a href="rooms.php">VIEW ALL ROOMS</a> -->
+            <router-link to="/Rooms">
+              {{ ViewAllRooms }}
+            </router-link>
+          </div>
+        </div>
+      </section>
+    </div>
   </Layout>
 </template>
 
 <script>
-import Layout from '../components/Layout';
+import Layout from "../components/Layout";
+import API from "../api/api";
 export default {
   name: "Index",
-  components:{
-    Layout
+  components: {
+    Layout,
   },
   data() {
     return {
@@ -149,8 +153,36 @@ export default {
       FavoriteRooms: "FAVORITE ROOMS",
       RoomTitle: "Room",
       ViewAllRooms: "VIEW ALL ROOMS",
-      BookNow: "BOOK NOW",
+      BookNow:"Book now",
+      rooms: [],
+      services: [],
     };
+  },
+  methods: {
+    fetchRooms() {
+      API.get("room/get-all")
+        .then((response) => {
+          console.log(response);
+          this.rooms = response.data.rooms;
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
+    fetchServices() {
+      API.get("service/get-all")
+        .then((response) => {
+          console.log(response);
+          this.services = response.data.services;
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
+  },
+  mounted() {
+    this.fetchRooms();
+    this.fetchServices();
   },
 };
 </script>
