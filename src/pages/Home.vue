@@ -39,15 +39,9 @@
             <div class="column-6 column-mob-12">
               <div class="about_title">
                 <h1>{{ AboutTitle }}</h1>
-                <!-- <?php 
-                                            $page = new ShowPages();
-                                            $about = $page->get_Page(1);
-                                        ?> -->
-                <!-- <h1><?php echo $about['title']; ?></h1> -->
               </div>
               <div class="about_content">
                 <p>{{ AboutDescription }}</p>
-                <!-- <p><?php echo $about['description']; ?></p> -->
               </div>
             </div>
           </div>
@@ -58,12 +52,6 @@
           <div class="services_title">
             <h1>OurServices</h1>
           </div>
-          <!-- <?php 
-                                $s = new ShowServices();
-                                $services = $s->get_Services();
-
-                                foreach ($services as $service):
-                            ?> -->
         </div>
         <div
           class="row has_gutter"
@@ -74,7 +62,6 @@
           <div class="column-3 column-mob-12">
             <div class="service_title">
               <h1>{{ service.title }}</h1>
-              <!-- <h1><?php echo $service['title']; ?></h1> -->
             </div>
             <div class="service_image">
               <img v-bind:src="service.image" />
@@ -82,28 +69,20 @@
             </div>
             <div class="service_content">
               <p>{{ service.description }}</p>
-              <!-- <p><?php echo $service['description']; ?></p> -->
             </div>
           </div>
         </div>
-        <!-- <?php endforeach; ?> -->
       </section>
       <section class="block_section rooms_section">
         <div class="container">
           <div class="rooms_title">
             <h1>{{ FavoriteRooms }}</h1>
           </div>
-          <!-- <?php 
-                                $r = new ShowRooms();
-                                $rooms = $r->get_Rooms();
-                                foreach ($rooms as $room):
-                            ?> -->
-
           <div
             class="row has_gutter"
             v-for="room in rooms"
             v-bind="rooms"
-            v-bind:key="room"
+            v-bind:key="room._id"
           >
             <div class="column-3 column-mob-12">
               <div class="service_image">
@@ -112,18 +91,13 @@
               </div>
               <div class="room_title">
                 <h1>{{ room.title }}</h1>
-                <!-- <h1><?php echo $room['title']; ?></h1> -->
-                <!-- <a href="singleRoom.php?id=<?php echo $room['id']; ?>"
-                >BOOK NOW</a -->
                 <router-link :to="'/singleroom/' + room.slug">
                   {{ BookNow }}
                 </router-link>
               </div>
             </div>
           </div>
-          <!-- <?php endforeach; ?> -->
           <div class="rooms_view">
-            <!-- <a href="rooms.php">VIEW ALL ROOMS</a> -->
             <router-link to="/Rooms">
               {{ ViewAllRooms }}
             </router-link>
@@ -145,8 +119,8 @@ export default {
   data() {
     return {
       Vanoa: "VANOA",
-      AboutTitle: "About",
-      AboutDescription: "About Description",
+      AboutTitle: "About Us",
+      AboutDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod rerum voluptates, sequi porro corrupti dignissimos fugit qui alias ea ducimus officiis odio aperiam mollitia? Fuga ratione libero fugit eveniet sunt?",
       OurServices: "OUR SERVICES",
       ServiceTitle: "Service",
       ServiceContent: "Service Content",

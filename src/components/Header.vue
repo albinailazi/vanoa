@@ -31,7 +31,7 @@
             </li>
             <li>
               <router-link class="nav-link" to="/about">
-                About
+                About Us
               </router-link>
             </li>
             <li>
