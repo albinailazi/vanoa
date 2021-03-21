@@ -12,6 +12,7 @@ import UserDashboard from '../pages/UserDashboard.vue'
 import RoomsDashboard from '../pages/RoomsDashboard.vue'
 import ServicesDashboard from '../pages/ServicesDashboard.vue'
 import AddUser from '../pages/AddUser.vue'
+import UserEdit from '../pages/UserEdit.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -28,6 +29,8 @@ export const routes =[
     {path:'/roomsDashboard', name:'roomsDashboard', component:RoomsDashboard},
     {path:'/servicesDashboard', name:'servicesDashboard', component:ServicesDashboard},
     {path:'/addUser', name:'addUser', component:AddUser},
+    {path:'/userEdit', name:'userEdit', component:UserEdit},
+
     
 
     

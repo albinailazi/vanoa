@@ -53,7 +53,7 @@
                     <td style="padding:10px;">{{ user.createdAt }}</td>
                     <td style="padding:10px;">{{ user.updatedAt }}</td>
                     <div style="float:right;">
-                    <button>Edit</button>
+                    <button @click="editUser(user);">Edit</button>
                     <button type="button" style=" margin-left:10px;" @click="deleteUser(user)">Delete</button>
                     
                     </div>
@@ -66,7 +66,7 @@
     </div>
 
   <div class="banner_heading">
-          <h1>{{ Vanoa }}</h1>
+          <h1>{{ VANOA }}</h1>
         </div>
       
     </section>
@@ -77,26 +77,21 @@
  <script>
  /* eslint-disable */
 
- import API from "../api/api";
+ import API, { prepareAuthorization }  from "../api/api";
 import Layout from '../components/Layout.vue';
+
      export default{
   components: { Layout },
          name:'UserDashboard',
-          components:{
-    Layout
-  },
          data() {
              return{
+                VANOA: 'Vanoa',
                  User: [],
              }
          },
 methods: {
-  deleteUser(user) {
-
-          let userData_String = window.localStorage.getItem("VANOA_USER");
-          const userData = JSON.parse(userData_String);
-          API.defaults.headers.common.Authorization = `Bearer ${userData.token}`;
-
+    deleteUser(user) {
+      prepareAuthorization();
       API.delete('user/delete',{data: user})
         .then(response => {
           //this.$router.push({ name: "userDashboard" });
@@ -108,17 +103,22 @@ methods: {
     },
 
     getAllUsers() {
+      prepareAuthorization();
       API.get('user/get-all')
              .then((response) =>{
-                 console.log(response.data.users);
                  this.User = response.data.users;
              })
              .catch((error) => {
                  console.log(error); 
              });
+    },
+
+    editUser(user) {
+      this.$router.push({name: "userEdit", params: {
+        user: user
+      }});
     }
 },
-      
          mounted() {
              this.getAllUsers();
          }

@@ -7,7 +7,9 @@
       <form
         class="login_box"
         id="register_form"
-        @submit.prevent="onSubmit(email, username, password, passwordConfirm)">
+        @submit.prevent="onSubmit(email, username, password, passwordConfirm)"
+      >
+        <!-- <?php echo $res && $res != '' ? '<p style="color:red">'. $res .'</p>' : ''; ?> -->
         <div class="emailContainer">
           <label for="email"> Email </label>
           <input type="email" v-model="email" name="email" id="email" />
@@ -34,10 +36,10 @@
           />
         </div>
 
-        <div class="">
-          <button type="" name="" to="/UserDashboard">Add</button>
+        <div class="register_button">
+          <button type="submit" name="submitted" @click="registerUser(user)">Add User</button>
         </div>
-       
+      
       </form>
     </div>
   </div>
@@ -49,7 +51,7 @@ import store from "../store";
 import * as type from "../types";
 
 export default {
-  name: "register",
+  name: "AddUser",
   data() {
     return {
       email: null,
@@ -59,9 +61,10 @@ export default {
     };
   },
   methods: {
+
     onSubmit(email, username, password, passwordConfirm) {
       if (password !== passwordConfirm) return;
-
+    
       API.post("user/register", {
         email: email,
         username: username,
@@ -79,15 +82,12 @@ export default {
           API.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           window.localStorage.setItem("VANOA_USER", JSON.stringify(userData));
 
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "userDashboard" });
         })
         .catch((error) => {
           console.log("error", error);
         });
     },
-    
   },
-  
 };
 </script>
-
