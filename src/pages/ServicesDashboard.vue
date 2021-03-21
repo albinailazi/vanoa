@@ -13,13 +13,13 @@
         </th>
        <hr/>
          <th> 
-            <router-link class="nav-link" to="/RoomsDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/RoomsDashboard" style="font-size: 30px; padding-top:20px;">
             Rooms |
           </router-link>
         </th>
           <hr/>
          <th> 
-            <router-link class="nav-link" to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
             Services |
           </router-link>
         </th>
@@ -39,20 +39,22 @@
             <thead>
             <tr style="color:white;">
                 
-        <th style="padding:10px; font-color:white;">Username</th>
-        <th style="padding:10px;">E-mail</th>
+        <th style="padding:10px; font-color:white;">Title</th>
+        <th style="padding:10px;">Description</th>
+        <th style="padding:10px;">Image</th>
         <th style="padding:10px;">Created At</th>
         <th style="padding:10px;">Updated At</th>
             </tr>
             </thead>
 
             <tbody style="color:white;">
-                <tr v-for="user in User" :key="user._id">
+                <tr v-for="service in Service" :key="service._id">
                   
-                    <td style="padding:10px;">{{ user.username }}</td>
-                    <td style="padding:10px;">{{ user.email }}</td>
-                    <td style="padding:10px;">{{ user.createdAt }}</td>
-                    <td style="padding:10px;">{{ user.updatedAt }}</td>
+                    <td style="padding:10px;">{{ service.title }}</td>
+                    <td style="padding:10px;">{{ service.description }}</td>
+                    <td style="padding:10px;">{{ service.image }}</td>
+                    <td style="padding:10px;">{{ service.createdAt }}</td>
+                    <td style="padding:10px;">{{ service.updatedAt }}</td>
                 </tr>
             </tbody>
         </table>
@@ -76,20 +78,20 @@
 import Layout from '../components/Layout.vue';
      export default{
   components: { Layout },
-         name:'Admin',
+         name:'ServicesDashboard',
           components:{
     Layout
   },
          data() {
              return{
-                 User: [],
+                 Service: [],
              }
          },
          mounted() {
-             API.get('user/get-all')
+             API.get('service/get-all')
              .then((response) =>{
-                 console.log(response.data.users);
-                 this.User = response.data.users;
+                 console.log(response.data.services);
+                 this.Service = response.data.services;
              })
              .catch((error) => {
                  console.log(error); 

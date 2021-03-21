@@ -19,7 +19,7 @@
         </th>
           <hr/>
          <th> 
-            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
             Services |
           </router-link>
         </th>

@@ -10,6 +10,7 @@ import User from '../pages/User.vue'
 import Admin from '../pages/Admin.vue'
 import UserDashboard from '../pages/UserDashboard.vue'
 import RoomsDashboard from '../pages/RoomsDashboard.vue'
+import ServicesDashboard from '../pages/ServicesDashboard.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -24,6 +25,7 @@ export const routes =[
     {path:'/admin', name:'admin', component:Admin},
     {path:'/userDashboard', name:'userDashboard', component:UserDashboard},
     {path:'/roomsDashboard', name:'roomsDashboard', component:RoomsDashboard},
+    {path:'/servicesDashboard', name:'servicesDashboard', component:ServicesDashboard},
     
 
     
