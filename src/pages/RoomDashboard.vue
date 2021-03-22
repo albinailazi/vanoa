@@ -28,7 +28,7 @@
         </th>
           <hr/>
          <th> 
-            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ContactDashboard" style="font-size: 30px; padding-top:20px;">
             Contacts |
           </router-link>
         </th>

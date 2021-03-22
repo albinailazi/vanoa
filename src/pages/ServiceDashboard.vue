@@ -18,19 +18,19 @@
         </th>
        <hr/>
          <th> 
-            <router-link to="/RoomsDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/RoomDashboard" style="font-size: 30px; padding-top:20px;">
             Rooms |
           </router-link>
         </th>
           <hr/>
          <th> 
-            <router-link to="/ServicesDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ServiceDashboard" style="font-size: 30px; padding-top:20px;">
             Services |
           </router-link>
         </th>
           <hr/>
          <th> 
-            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
+            <router-link to="/ContactDashboard" style="font-size: 30px; padding-top:20px;">
             Contacts |
           </router-link>
         </th>

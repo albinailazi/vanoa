@@ -16,6 +16,7 @@ import UserEdit from '../pages/UserEdit.vue'
 import AddRoom from '../pages/AddRoom.vue'
 import RoomEdit from '../pages/RoomEdit.vue'
 import ServiceEdit from '../pages/ServiceEdit.vue'
+import AddService from '../pages/AddService.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -36,6 +37,7 @@ export const routes =[
     {path:'/addRoom', name:'addRoom', component:AddRoom},
     {path:'/roomEdit', name:'roomEdit', component:RoomEdit},
     {path:'/serviceEdit', name:'serviceEdit', component:ServiceEdit},
+    {path:'/addService', name:'addService', component:AddService},
 
 
     
