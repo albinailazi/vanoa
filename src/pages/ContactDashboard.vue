@@ -1,6 +1,6 @@
 <template>
   <div class="Home">
-    <section class="block_section banner_section" style="background-color:white;">         
+    <section class="block_section banner_section" id="tr-colortr-color">         
       <div id="editdiv">
         <div class="logo_header">
           <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
@@ -35,30 +35,34 @@
         </table>
         
         <div id="adduser">
-          <router-link to="/AddUser">Add User</router-link>
+          <router-link to="/AddContact">Add Contact</router-link>
         </div>
         
         <div id="editseconddiv">
           <table>
             <thead>
               <tr id="tr-color">
-                <th id="th-padding">Username</th>
-                <th>E-mail</th>
+                <th id="th-padding">Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
                 <th>Created At</th>
                 <th>Updated At</th>
               </tr>
             </thead>
 
-            <tbody style="color:white;">
-              <tr v-for="user in User" :key="user._id">
-                <td id="th-padding">{{ user.username }}</td>
-                <td id="th-padding">{{ user.email }}</td>
-                <td id="th-padding">{{ user.createdAt }}</td>
-                <td id="th-padding">{{ user.updatedAt }}</td>
+            <tbody id="tr-color">
+              <tr v-for="contact in Contact" :key="contact._id">
+                <td id="th-padding">{{ contact.name }}</td>
+                <td id="th-padding">{{ contact.email }}</td>
+                <td id="th-padding">{{ contact.subject }}</td>
+                <td id="th-padding">{{ contact.message }}</td>
+                <td id="th-padding">{{ contact.createdAt }}</td>
+                <td id="th-padding">{{ contact.updatedAt }}</td>
 
                 <div id="df">
-                  <button id="editbutton" @click="editUser(user);">Edit</button>
-                  <button type="button" id="deletebutton" @click="deleteUser(user)">Delete</button>
+                  <td><button id="editbutton" @click="editContact(contact);">Edit</button></td>
+                  <td><button type="button" id="deletebutton" @click="deleteContact(contact)">Delete</button></td>
                 </div>
               </tr>
             </tbody>
@@ -74,45 +78,45 @@
 import API, { prepareAuthorization }  from "../api/api";
 
 export default{
-  name:'UserDashboard',
+  name:'ContactDashboard',
     data() {
       return{
         VANOA: 'Vanoa',
-          User: [],
+          Contact: [],
       }
     },
   methods: {
-    deleteUser(user) {
+    deleteContact(contact) {
       prepareAuthorization();
-      API.delete('user/delete',{data: user})
+      API.delete('contact/delete',{data: contact})
         .then(response => {
-          this.getAllUsers();
+          this.getAllContacts();
         })
         .catch((error) => {
           console.log(error); 
         });
     },
 
-    getAllUsers() {
+    getAllContacts() {
       prepareAuthorization();
-      API.get('user/get-all') 
+      API.get('contact/get-all') 
         .then((response) =>{
-          this.User = response.data.users;
+          this.Contact = response.data.contacts;
         })
         .catch((error) => {
           console.log(error); 
         });
     },
 
-    editUser(user) {
-      this.$router.push({name: "userEdit", params: {
-        user: user
+    editContact(contact) {
+      this.$router.push({name: "contactEdit", params: {
+        contact: contact
       }});
     }
   },
 
   mounted() {
-    this.getAllUsers();
+    this.getAllContacts();
   }
 }
  </script>
@@ -185,13 +189,14 @@ export default{
  }
 
  #editbutton{
-  background-color: #b17e64;
+   background-color: #b17e64;
 	color:white;
 	padding:5px 20px;
 	border:none;
 	cursor: pointer;
 	transition: background-color 100ms;
-  margin-right:5px;
+  margin-bottom:4px;
+
  }
 
  #deletebutton{
@@ -201,6 +206,8 @@ export default{
 	border:none;
 	cursor: pointer;
 	transition: background-color 100ms;
+	margin-bottom:0px;
+	margin-right:20px;
  }
 
  #buttonmargin{
@@ -216,7 +223,7 @@ export default{
  }
 
  #th-padding{
-   padding:10px;
+   padding-left:10px;
  }
 
  #df{

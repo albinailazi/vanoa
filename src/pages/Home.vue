@@ -1,9 +1,7 @@
 <template>
   <Layout>
     <div class="Home">
-      <section
-        class="block_section banner_section"
-        style="background-image: url('content/images/slider.jpg')"
+      <section class="block_section banner_section" style="background-image: url('content/images/slider.jpg')"
       >
         <div class="banner_content">
           <div class="banner_logo">

@@ -1,119 +1,109 @@
 <template>
-<Layout>
-    <div class="Home">
-    <section class="block_section banner_section" style="background-color:white;">
-      <div style="margin-top:200px; font-size: 14px;  
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300; color:#333; opacity:100;">
-
-      <router-link to="/AddService" style="float:left; padding-left:40px; font-size:20px; ">
-         Add Service
+  <div class="Home">
+    <section class="block_section banner_section" id="tr-colortr-color">         
+      <div id="editdiv">
+        <div class="logo_header">
+          <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
+            <span >V</span>anoa - Dashboard
           </router-link>
-
-    <table>
-        <th style="padding-left:732px;">
-            <router-link to="/UserDashboard" style="font-size: 30px; padding-top:20px;">
-            Users |
-          </router-link>
-        </th>
-       <hr/>
-         <th> 
-            <router-link to="/RoomDashboard" style="font-size: 30px; padding-top:20px;">
-            Rooms |
-          </router-link>
-        </th>
-          <hr/>
-         <th> 
-            <router-link to="/ServiceDashboard" style="font-size: 30px; padding-top:20px;">
-            Services |
-          </router-link>
-        </th>
-          <hr/>
-         <th> 
-            <router-link to="/ContactDashboard" style="font-size: 30px; padding-top:20px;">
-            Contacts |
-          </router-link>
-        </th>
-   
+        </div>
         
-          </table>
-    <div class="container" style="background:#222;  margin-right:10px; margin-left:36px; box-sizing: border-box;  border-radius: 0.5rem;">
-      
-<table>
-    
-            <thead>
-            <tr style="color:white;">
-                
-        <th style="padding:10px; font-color:white;">Title</th>
-        <th style="padding:10px;">Description</th>
-        <th style="padding:10px;">Image</th>
-        <th style="padding:10px;">Created At</th>
-        <th style="padding:10px;">Updated At</th>
-            </tr>
-            </thead>
-
-            <tbody style="color:white;">
-                <tr v-for="service in Service" :key="service._id">
-                  
-                    <td style="padding:10px;">{{ service.title }}</td>
-                    <td style="padding:10px;">{{ service.description }}</td>
-                    <td style="padding:10px;">{{ service.image }}</td>
-                    <td style="padding:10px;">{{ service.createdAt }}</td>
-                    <td style="padding:10px;">{{ service.updatedAt }}</td>
-                    <button @click="editService(service);">Edit</button>
-                    <button type="button" style=" margin-left:10px;" @click="deleteService(service)">Delete</button>
-                </tr>
-            </tbody>
+        <table>
+          <div id="editth">
+            <th>
+            <router-link to="/UserDashboard" id="editsecondrouterlink">Users |</router-link>
+            </th>
+       
+            <th> 
+            <router-link class="nav-link" to="/RoomDashboard" id="editsecondrouterlink">Rooms |</router-link>
+            </th>
+          
+            <th> 
+            <router-link class="nav-link" to="/ServiceDashboard" id="editsecondrouterlink">Services |</router-link>
+            </th>
+         
+            <th> 
+            <router-link to="/ContactDashboard" id="editsecondrouterlink">Contacts</router-link>
+            </th>
+            
+            <div id="separator-padding">
+              <div class="seperator white" id="editseperator">
+                <span>V</span>
+              </div>
+            </div>  
+          </div>
         </table>
         
+        <div id="adduser">
+          <router-link to="/AddService">Add Service</router-link>
         </div>
-    </div>
+        
+        <div id="editseconddiv">
+          <table>
+            <thead>
+              <tr id="tr-color">
+                <th id="th-padding">Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+              </tr>
+            </thead>
 
-  <div class="banner_heading">
-          <h1>{{ Vanoa }}</h1>
+            <tbody id="tr-color">
+              <tr v-for="service in Service" :key="service._id">
+                <td id="th-padding">{{ service.title }}</td>
+                <td id="th-padding">{{ service.description }}</td>
+                <td id="th-padding">{{ service.image }}</td>
+                <td id="th-padding">{{ service.createdAt }}</td>
+                <td id="th-padding">{{ service.updatedAt }}</td>
+
+                <div id="df">
+                  <td><button id="editbutton" @click="editService(service);">Edit</button></td>
+                  <td><button type="button" id="deletebutton" @click="deleteService(service)">Delete</button></td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      
+      </div>
     </section>
-    </div>
-</Layout>
+  </div>
 </template>
 
  <script>
- /* eslint-disable */
+/* eslint-disable */
+import API, { prepareAuthorization }  from "../api/api";
 
- import API, { prepareAuthorization }  from "../api/api";
-import Layout from '../components/Layout.vue';
-
-     export default{
-  components: { Layout },
-         name:'ServiceDashboard',
-         data() {
-             return{
-                VANOA: 'Vanoa',
-                 Service: [],
-             }
-         },
-methods: {
+export default{
+  name:'ServiceDashboard',
+    data() {
+      return{
+        VANOA: 'Vanoa',
+          Service: [],
+      }
+    },
+  methods: {
     deleteService(service) {
       prepareAuthorization();
       API.delete('service/delete',{data: service})
         .then(response => {
           this.getAllServices();
         })
-         .catch((error) => {
-                 console.log(error); 
-             });
+        .catch((error) => {
+          console.log(error); 
+        });
     },
 
     getAllServices() {
       prepareAuthorization();
-      API.get('service/get-all')
-             .then((response) =>{
-                 this.Service = response.data.services;
-             })
-             .catch((error) => {
-                 console.log(error); 
-             });
+      API.get('service/get-all') 
+        .then((response) =>{
+          this.Service = response.data.services;
+        })
+        .catch((error) => {
+          console.log(error); 
+        });
     },
 
     editService(service) {
@@ -121,14 +111,122 @@ methods: {
         service: service
       }});
     }
-},
-         mounted() {
-             this.getAllServices();
-         }
-     }
+  },
+
+  mounted() {
+    this.getAllServices();
+  }
+}
  </script>
 
+ <style>
+ #vanoa-dashboard{
+   color:inherit;
+   padding-left:100px
+ }
+ #editdiv{
+   margin-top: 10px;
+   margin-left:5px;
+   margin-right:100px;
+   font-size: 14px;
+   font-family:'Roboto', sans-serif;
+   font-weight: 300;
+   color:#333;
+ }
 
- 
+ #editrouterlink{
+   float: left;
+   padding-left: 30px;
+   margin-bottom: -30px;
+   font-size: 25px;
+   font-family:'Roboto', sans-serif;
+   font-weight: 300;
+   color:#333;
+   
+   
+ }
+
+ #editth{
+   padding-left:795px;
+   margin-top: -40px;
+ }
+
+ #editsecondrouterlink{
+   font-size: 30px;
+   padding-top:20px;
+ }
+
+ #editseconddiv{
+   background: #222;
+   margin-right: -75px;
+   margin-left: 20px;
+   box-sizing: border-box;
+   border-radius: 0.5rem;
+ }
+
+ #editseperator{
+    position: relative;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #b17e64;
+    padding-bottom: 10px;
+    margin-left: -770px;
+    margin-right: -93px;
+    padding-right: 100px;
+ }
+
+ #adduser{
+  margin-right: 1096px;
+  margin-bottom: 10px;
+   font-size: 25px;
+   font-family:'Roboto', sans-serif;
+   font-weight: 300;
+   color:#333;
+ }
+
+ #editbutton{
+   background-color: #b17e64;
+	color:white;
+	padding:5px 20px;
+	border:none;
+	cursor: pointer;
+	transition: background-color 100ms;
+  margin-bottom:4px;
+
+ }
+
+ #deletebutton{
+  background-color: #b17e64;
+	color:white;
+	padding:5px 14px;
+	border:none;
+	cursor: pointer;
+	transition: background-color 100ms;
+	margin-bottom:0px;
+	margin-right:20px;
+ }
+
+ #buttonmargin{
+   margin-bottom:100px;
+ }
+
+ #separator-padding{
+   padding-bottom:100px;
+ }
+
+ #tr-color{
+   color:white;
+ }
+
+ #th-padding{
+   padding-left:10px;
+ }
+
+ #df{
+   float:right;
+ }
+ </style>
  
 
