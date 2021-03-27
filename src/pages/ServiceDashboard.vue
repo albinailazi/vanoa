@@ -11,6 +11,10 @@
         <table>
           <div id="editth">
             <th>
+            <router-link to="/RoleDashboard" id="editsecondrouterlink">Roles |</router-link>
+            </th>
+
+            <th>
             <router-link to="/UserDashboard" id="editsecondrouterlink">Users |</router-link>
             </th>
        
@@ -119,7 +123,7 @@ export default{
 }
  </script>
 
- <style>
+  <style>
  #vanoa-dashboard{
    color:inherit;
    padding-left:100px
@@ -147,7 +151,7 @@ export default{
  }
 
  #editth{
-   padding-left:795px;
+   padding-left:730px;
    margin-top: -40px;
  }
 
@@ -172,8 +176,8 @@ export default{
     justify-content: center;
     border-bottom: 2px solid #b17e64;
     padding-bottom: 10px;
-    margin-left: -770px;
-    margin-right: -93px;
+    margin-left: -700px;
+    margin-right: -60px;
     padding-right: 100px;
  }
 
@@ -187,14 +191,13 @@ export default{
  }
 
  #editbutton{
-   background-color: #b17e64;
+  background-color: #b17e64;
 	color:white;
 	padding:5px 20px;
 	border:none;
 	cursor: pointer;
 	transition: background-color 100ms;
-  margin-bottom:4px;
-
+  margin-right:5px;
  }
 
  #deletebutton{
@@ -204,8 +207,6 @@ export default{
 	border:none;
 	cursor: pointer;
 	transition: background-color 100ms;
-	margin-bottom:0px;
-	margin-right:20px;
  }
 
  #buttonmargin{
@@ -221,7 +222,7 @@ export default{
  }
 
  #th-padding{
-   padding-left:10px;
+   padding:10px;
  }
 
  #df{
