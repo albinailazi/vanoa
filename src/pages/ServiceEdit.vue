@@ -1,26 +1,41 @@
-<template>  
+<template>
+  <div class="login-body">
+    <div class="login-content">
+         <div class="logo_header" id="logo-header">
+          <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
+            <span >V</span>anoa - Dashboard  
+          </router-link>
+          </div>
+      <div class="logo_footer white seperator">
+         <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
+            <span id="span-id">V</span>
+          </router-link>
+      </div>
 
-<form>
-            <div class="">
+<form class="login_box" id="register_form">
+            <div class="emailContainer">
                 <label name="service.title">Title</label>
                 <input type="text" class="form-control" v-model="service.title" required>
             </div>
             
-            <div class="">
+            <div class="usernameContainer">
                 <label name="service.description">Description</label>
                 <input type="text" class="form-control" v-model="service.description" required>
             </div>
 
-            <div class="">
+            <div class="usernameContainer">
                 <label name="service.image">Image</label>
                 <input type="text" class="form-control" v-model="service.image" required>
             </div>
 
 
-            <router-link to="/ServiceDashboard"><button>Back</button></router-link>
-             <button type="button" @click="updateService(service)">Save</button> 
+            <router-link to="/ServiceDashboard"><button id="button-id">Back</button></router-link>
+             <button type="button" id="button-id"  @click="updateService(service)">Save</button> 
         </form>
+ </div>
+  </div>
 </template>
+
 
 <script>
  /* eslint-disable */
