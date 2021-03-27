@@ -44,9 +44,8 @@
                                     <div class="column-12 column-mob-12">
                                         <div class="rooms_img">
                                             <!-- <?php if ($room['image']): ?> -->
-                                                <img src="<?php echo $room['image']; ?>" >
-                                                    <!-- <?php else: ?> -->
-                                                        <p>{{ NoImageSelected }}</p>
+                                                <img width="60" height="60" v-bind:src="Room.image" />
+                                                <p v-if="!Room.image">{{ NoImageSelected }}</p>
                                             <!-- <?php endif?> -->
                                         </div>
                                     </div>
@@ -56,14 +55,17 @@
                                 <div class="column-7 column-mob-12">
                                     <div class="rooms_title">
                                         <!-- <a href="javascript:void(0)"><?php echo $room['title'] ?></a> -->
+                                        <a href="javascript:void(0)">{{Room.title}}</a>
                                         <div class="rooms_price">
                                             <!-- <span><?php echo $room['price'] ?></span> -->
+                                            <span>{{Room.price}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="column-7 column-mob-12">               
                                     <div class="rooms_content">
                                         <!-- <p><?php echo $room['description'] ?></p> -->
+                                        <p>{{Room.description}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -76,6 +78,7 @@
 
 <script>
 import Layout from '../components/Layout.vue';
+//import API from '../api/api';
 export default {
   components: { Layout
    },
@@ -86,8 +89,11 @@ export default {
       NoImageSelected: "No Image Selected",
       BestRoms: "Best Rooms",
       Reservations: "Reservations",
-    
+      Room: null,
+      
     };
   },
+
+  
 };
 </script>

@@ -41,7 +41,6 @@
           <form
             class="contact_form has_gutter"
             id="contact_form"
-            
             @submit.prevent="onSubmit(name, email, subject, message)"
           >
             <div class="row">
@@ -69,7 +68,7 @@
               <div class="column-12 messageContainer">
                 <label>Message</label>
                 <textarea
-                  rows="3"
+                  row="3"
                   v-model="message"
                   id="message"
                   name="message"
@@ -102,16 +101,16 @@ export default {
       email: null,
       subject: null,
       message: null,
-    };
+    };  
   },
   methods: {
-       onSubmit(name, email, subject, message) {
+    onSubmit(name, email, subject, message) {
       
       API.post("contact/create", {
         name: name,
         email: email,
         subject: subject,
-        message: message,
+        message: message
       })
         .then((response) => {
           console.log(response);

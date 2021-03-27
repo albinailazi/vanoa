@@ -34,9 +34,7 @@
           </div>
         </table>
         
-        <div id="adduser">
-          <router-link to="/AddContact">Add Contact</router-link>
-        </div>
+        
         
         <div id="editseconddiv">
           <table>
@@ -52,7 +50,7 @@
             </thead>
 
             <tbody id="tr-color">
-              <tr v-for="contact in Contact" :key="contact._id">
+              <tr v-for="contact in Contacts" :key="contact._id">
                 <td id="th-padding">{{ contact.name }}</td>
                 <td id="th-padding">{{ contact.email }}</td>
                 <td id="th-padding">{{ contact.subject }}</td>
@@ -61,7 +59,6 @@
                 <td id="th-padding">{{ contact.updatedAt }}</td>
 
                 <div id="df">
-                  <td><button id="editbutton" @click="editContact(contact);">Edit</button></td>
                   <td><button type="button" id="deletebutton" @click="deleteContact(contact)">Delete</button></td>
                 </div>
               </tr>
@@ -82,7 +79,7 @@ export default{
     data() {
       return{
         VANOA: 'Vanoa',
-          Contact: [],
+          Contacts: [],
       }
     },
   methods: {
@@ -101,18 +98,12 @@ export default{
       prepareAuthorization();
       API.get('contact/get-all') 
         .then((response) =>{
-          this.Contact = response.data.contacts;
+          this.Contacts = response.data.contacts;
         })
         .catch((error) => {
           console.log(error); 
         });
     },
-
-    editContact(contact) {
-      this.$router.push({name: "contactEdit", params: {
-        contact: contact
-      }});
-    }
   },
 
   mounted() {
