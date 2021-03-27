@@ -1,19 +1,27 @@
-<template>  
-
-<form>
-            <div class="">
+<template>
+  <div class="login-body">
+    <div class="login-content">
+      <div class="logo_footer white seperator">
+         <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
+            <span >V</span>anoa - Dashboard
+          </router-link>
+      </div>
+      <form class="login_box" id="register_form">
+            <div class="emailContainer">
                 <label name="user.email">Email</label>
                 <input type="text" class="form-control" v-model="user.email" required>
             </div>
             
-            <div class="">
+            <div class="usernameContainer">
                 <label name="user.username">Username</label>
                 <input type="text" class="form-control" v-model="user.username" required>
             </div>
-
-            <router-link to="/UserDashboard"><button>Back</button></router-link>
-             <button type="button" @click="updateUser(user)">Save</button> 
+            
+            <router-link to="/UserDashboard"><button id="button-id">Back</button></router-link>
+             <button type="button" id="button-id" @click="updateUser(user)">Save</button> 
         </form>
+    </div>
+  </div>
 </template>
 
  <script>
@@ -45,6 +53,24 @@
         }
      }
  </script>
+
+ <style >
+
+ #button-id{
+    background-color: #b17e64;
+	color:white;
+	padding:5px 15px;
+	border:none;
+	cursor: pointer;
+	transition: background-color 100ms;
+	margin-top:20px;
+    margin-right:3px;
+    margin-left:3px;
+ }
+
+ 
+
+ </style>
 
  
  

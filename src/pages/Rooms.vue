@@ -31,21 +31,14 @@
                   v-bind:key="room._id"
                 >
                   <li class="rooms_display">
-                    <!-- <?php if ($room['image']): ?> 
-                    <img
-                      
-                      src="<?php echo $room['image']; ?>"
-                    />-->
                     <img width="60" height="60" v-bind:src="room.image" />
                     <p v-if="!room.image">{{ NoImageSelected }}</p>
-                    <!-- <?php endif?> -->
-                    <router-link :to="'/singleroom/' + room.slug">
+                    <router-link :to="'/singleRoom/' + room.slug">
                       {{ room.title }}
                     </router-link>
                     <span> {{ room.price }}</span>
                   </li>
                 </ul>
-                <!-- <?php endforeach; ?> -->
                 <div class="rooms_reservation">
                   <p>{{ Reservations }}</p>
                   <span>044-100-100</span>
@@ -53,7 +46,6 @@
               </li>
             </div>
 
-            <!-- <?php foreach ($allRooms as $room): ?> -->
             <div
               class="rooms"
               v-for="room in rooms"

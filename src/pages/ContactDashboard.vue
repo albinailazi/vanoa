@@ -189,7 +189,7 @@ export default{
  }
 
  #editbutton{
-   background-color: #b17e64;
+  background-color: #b17e64;
 	color:white;
 	padding:5px 20px;
 	border:none;

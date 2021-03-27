@@ -4,12 +4,8 @@
       <div class="logo_footer white seperator">
         <span>V</span>
       </div>
-      <form
-        class="login_box"
-        id="register_form"
-        @submit.prevent="onSubmit(email, username, password, passwordConfirm)"
-      >
-        <!-- <?php echo $res && $res != '' ? '<p style="color:red">'. $res .'</p>' : ''; ?> -->
+      <form class="login_box" id="register_form"
+        @submit.prevent="onSubmit(email, username, password, passwordConfirm)">
         <div class="emailContainer">
           <label for="email"> Email </label>
           <input type="email" v-model="email" name="email" id="email" />
