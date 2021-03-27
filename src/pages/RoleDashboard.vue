@@ -39,32 +39,24 @@
         </table>
         
         <div id="adduser">
-          <router-link to="/AddUser">Add User</router-link>
+          <router-link to="/AddRole">Add Role</router-link>
         </div>
         
         <div id="editseconddiv">
           <table>
             <thead>
               <tr id="tr-color">
-                <th id="th-padding">Username</th>
-                <th>E-mail</th>
-                <th>Role</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th id="th-padding">Name</th>
               </tr>
             </thead>
 
             <tbody style="color:white;">
-              <tr v-for="user in User" :key="user._id">
-                <td id="th-padding">{{ user.username }}</td>
-                <td id="th-padding">{{ user.email }}</td>
-                <td id="th-padding">{{ user.role }}</td>
-                <td id="th-padding">{{ user.createdAt }}</td>
-                <td id="th-padding">{{ user.updatedAt }}</td>
+              <tr v-for="role in Role" :key="role._id">
+                <td id="th-padding">{{ role.name }}</td>
 
                 <div id="df">
-                  <button id="editbutton" @click="editUser(user);">Edit</button>
-                  <button type="button" id="deletebutton" @click="deleteUser(user)">Delete</button>
+                  <button id="editbutton" @click="editRole(role);">Edit</button>
+                  <button type="button" id="deletebutton" @click="deleteRole(role)">Delete</button>
                 </div>
               </tr>
             </tbody>
@@ -80,45 +72,45 @@
 import API, { prepareAuthorization }  from "../api/api";
 
 export default{
-  name:'UserDashboard',
+  name:'RoleDashboard',
     data() {
       return{
         VANOA: 'Vanoa',
-          User: [],
+          Role: [],
       }
     },
   methods: {
-    deleteUser(user) {
+    deleteRole(role) {
       prepareAuthorization();
-      API.delete('user/delete',{data: user})
+      API.delete('role/delete',{data: role})
         .then(response => {
-          this.getAllUsers();
+          this.getAllRoles();
         })
         .catch((error) => {
           console.log(error); 
         });
     },
 
-    getAllUsers() {
+    getAllRoles() {
       prepareAuthorization();
-      API.get('user/get-all') 
+      API.get('role/get-all') 
         .then((response) =>{
-          this.User = response.data.users;
+          this.Role = response.data.roles;
         })
         .catch((error) => {
           console.log(error); 
         });
     },
 
-    editUser(user) {
-      this.$router.push({name: "userEdit", params: {
-        user: user
+    editRole(role) {
+      this.$router.push({name: "roleEdit", params: {
+        role: role
       }});
     }
   },
 
   mounted() {
-    this.getAllUsers();
+    this.getAllRoles();
   }
 }
  </script>

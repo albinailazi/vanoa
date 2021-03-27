@@ -21,6 +21,13 @@
                 <label name="user.username">Username</label>
                 <input type="text" class="form-control" v-model="user.username" required>
             </div>
+
+            <div class="roleContainer">
+                <label name="user.role">Role</label>
+                <select v-model="user.role" required>
+                  <option  v-for="role in Roles" :key="role._id" v-bind="role.name">{{role.name}}</option>
+                </select>
+            </div>
             
             <router-link to="/UserDashboard"><button id="button-id">Back</button></router-link>
              <button type="button" id="button-id" @click="updateUser(user)">Save</button> 
@@ -38,11 +45,13 @@
         data() {
             return{
                 user: {},
+                Roles: [],
             }
         },
         methods: {
             updateUser(user) {
       prepareAuthorization();
+      
       API.post('user/update',user)
         .then(response => {
            this.$router.push({name: "userDashboard"
@@ -52,9 +61,22 @@
                  console.log(error); 
              });
         },
+
+        getRoles() {
+          API.get('role/get-all')
+          .then(response => {
+            this.Roles = response.data.roles;
+          })
+         .catch((error) => {
+                 console.log(error); 
+             });
         },
+        },
+
+        
         mounted() {
             this.user = this.$route.params.user;
+            this.getRoles();
         }
      }
  </script>

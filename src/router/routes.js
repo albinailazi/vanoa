@@ -19,6 +19,8 @@ import ServiceEdit from '../pages/ServiceEdit.vue'
 import AddService from '../pages/AddService.vue'
 import EditProfile from '../pages/EditProfile.vue'
 import ContactDashboard from '../pages/ContactDashboard.vue'
+import RoleDashboard from '../pages/RoleDashboard.vue'
+import AddRole from '../pages/AddRole.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -42,6 +44,8 @@ export const routes =[
     {path:'/addService', name:'addService', component:AddService},
     {path:'/editProfile', name:'editProfile', component:EditProfile},
     {path:'/contactDashboard', name:'contactDashboard', component:ContactDashboard},
+    {path:'/roleDashboard', name:'roleDashboard', component:RoleDashboard},
+    {path:'/addRole', name:'addRole', component:AddRole},
 
 
     
