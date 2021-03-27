@@ -21,6 +21,7 @@ import EditProfile from '../pages/EditProfile.vue'
 import ContactDashboard from '../pages/ContactDashboard.vue'
 import RoleDashboard from '../pages/RoleDashboard.vue'
 import AddRole from '../pages/AddRole.vue'
+import RoleEdit from '../pages/RoleEdit.vue'
 
 export const routes =[
     {path:'/', name:'Home', component:Home},
@@ -46,6 +47,7 @@ export const routes =[
     {path:'/contactDashboard', name:'contactDashboard', component:ContactDashboard},
     {path:'/roleDashboard', name:'roleDashboard', component:RoleDashboard},
     {path:'/addRole', name:'addRole', component:AddRole},
+    {path:'/roleEdit', name:'roleEdit', component:RoleEdit},
 
 
     
