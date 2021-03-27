@@ -1,9 +1,14 @@
 <template>
   <div class="login-body">
     <div class="login-content">
+         <div class="logo_header" id="logo-header">
+          <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
+            <span >V</span>anoa - Dashboard  
+          </router-link>
+          </div>
       <div class="logo_footer white seperator">
          <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
-            <span >V</span>anoa - Dashboard
+            <span id="span-id">V</span>
           </router-link>
       </div>
       <form class="login_box" id="register_form">
@@ -68,8 +73,22 @@
     margin-left:3px;
  }
 
+ #vanoa-dashboard{
+   color:inherit;
+   padding-left:100px
+ }
  
+ #logo-header{
+   color: inherit;
+    /* padding-left: 100px; */
+    margin-right:400px;
+    margin-bottom: -40px;
+    margin-top: 10px;
+ }
 
+#span-id{
+    margin-left: -70px;
+}
  </style>
 
  
