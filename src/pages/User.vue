@@ -2,8 +2,8 @@
 <Layout>
  <div class="Home">
     <section class="block_section banner_section" style="background: #333;">
-        <div id="editdiv">
-            <table style="margin-left:30px"> 
+        <div id="profile-table">
+            <table style="margin-left:30px;"> 
                 <thead>
                     <tr>
                         <th id="editpadding">Username</th>
@@ -65,20 +65,22 @@ import Layout from '../components/Layout';
 	cursor: pointer;
 	transition: background-color 100ms;
 	margin-bottom:0px;
-	margin-left:10px;
+	margin-left:20px;
 }
 
 #editpadding{
     padding:10px; 
 }
 
-#editdiv{
-    background:white;
-    margin-top:250px;
-    margin-right:300px;
-    margin-left:300px;
-    box-sizing: border-box;
+#profile-table{
+    margin-top: 320px;
+    margin-left: 250px;
+    margin-right: 250px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     background:white;
     border-radius: 0.5rem;
+    box-sizing: border-box;
 }
 </style>

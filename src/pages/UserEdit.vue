@@ -3,7 +3,7 @@
     <div class="login-content">
          <div class="logo_header" id="logo-header">
           <router-link id="vanoa-dashboard" class="nav-link" to="/UserDashboard">
-            <span >V</span>anoa - Dashboard  
+            <span>V</span>anoa - Dashboard  
           </router-link>
           </div>
       <div class="logo_footer white seperator">
