@@ -66,15 +66,6 @@
                 Logout
               </a>
             </li>
-
-            <!-- <li>
-              <a href="logout.php">Logout</a>
-            </li> -->
-            <!-- <li>
-              <router-link class="nav-link" to="/login">
-                Dashboard/Login
-              </router-link>
-            </li> -->
           </ul>
         </nav>
       </div>

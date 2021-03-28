@@ -23,7 +23,6 @@
             <div class="rooms_sidebar">
               <li class="top_rooms rooms_price column-mob-12">
                 <h2>{{ BestRooms }}</h2>
-                <!-- <?php foreach ($allRooms as $room): ?> -->
                 <ul
                   class="rooms_products"
                   v-for="room in rooms"
@@ -79,7 +78,6 @@
                 </div>
               </div>
             </div>
-            <!-- <?php endforeach; ?> -->
           </div>
         </section>
       </div>

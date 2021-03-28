@@ -2,7 +2,6 @@
   <Layout>
     <div class="mainWrap">
       <section class="block_section contact_section">
-        <!-- <div id="map" style="width:100%; height: 400px; display:none;"></div> -->
 
         <iframe
           style="width: 100%; height: 600px; border: 0"

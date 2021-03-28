@@ -12,17 +12,6 @@
           </div>
         </div>
       </section>
-
-      <!-- <section class="block_section banner_section">
-                        <div class="banner_content">
-                            <div class="banner_logo">
-                                <span>V</span>
-                            </div> -->
-      <!-- <div class="banner_heading">
-                                <h1>{{ Vanoa }}</h1>
-                            </div>
-                        </div>
-                    </section> -->
       <section class="block_section about_section">
         <div class="container">
           <div class="border_title seperator white">

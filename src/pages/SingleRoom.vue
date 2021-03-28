@@ -58,17 +58,14 @@
             <div class="row has_gutter">
               <div class="column-7 column-mob-12">
                 <div class="rooms_title">
-                  <!-- <a href="javascript:void(0)"><?php echo $room['title'] ?></a> -->
                   <a href="javascript:void(0)">{{ Room.title }}</a>
                   <div class="rooms_price">
-                    <!-- <span><?php echo $room['price'] ?></span> -->
                     <span>{{ Room.price }}</span>
                   </div>
                 </div>
               </div>
               <div class="column-7 column-mob-12">
                 <div class="rooms_content">
-                  <!-- <p><?php echo $room['description'] ?></p> -->
                   <p>{{ Room.description }}</p>
                 </div>
               </div>

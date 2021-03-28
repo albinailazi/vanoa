@@ -18,6 +18,9 @@
         <table>
           <div id="editth">
             <th>
+              <router-link to="/" id="editsecondrouterlink">Home |</router-link>
+            </th>
+            <th>
               <router-link to="/RoleDashboard" id="editsecondrouterlink"
                 >Roles |</router-link
               >

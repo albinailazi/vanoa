@@ -47,7 +47,6 @@
                             </a>
                         </div> 
           <div class="footer_contact block_section">
-            <!-- <a href="contact.html">CONTACT</a> -->
              <router-link :to="'/contact/'">
                         CONTACT
               </router-link>

@@ -23,7 +23,7 @@
         </div>
 
         <div class="roleContainer">
-          <label name="role">Role</label>
+          <label style="margin-top: 5px" name="role">Role</label>
           <select v-model="role" required>
             <option v-for="role in Roles" :key="role._id" v-bind="role">{{
               role.name
@@ -128,5 +128,9 @@ export default {
 
 #span-id {
   margin-left: -70px;
+}
+.selectionBox {
+  padding: 5px 5px 5px 5px;
+  margin-top: -25px;
 }
 </style>
