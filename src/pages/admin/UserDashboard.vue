@@ -17,6 +17,11 @@
 
         <table>
           <div id="editth">
+              <th>
+              <router-link to="/" id="editsecondrouterlink"
+                >Home |</router-link
+              >
+            </th>
             <th>
               <router-link to="/RoleDashboard" id="editsecondrouterlink"
                 >Roles |</router-link
@@ -52,6 +57,7 @@
                 >Contacts</router-link
               >
             </th>
+            
 
             <div id="separator-padding">
               <div class="seperator white" id="editseperator">
