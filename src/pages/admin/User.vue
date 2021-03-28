@@ -17,7 +17,16 @@
               <td id="editpadding" v-if="user">{{ user.email }}</td>
               <td id="editpadding" v-if="user">{{ user.createdAt }}</td>
               <td id="editpadding" v-if="user">{{ user.updatedAt }}</td>
-              <button id="editbutton" @click="editUser(user)">Edit</button>
+                <div id="df">
+                <button id="editbutton" @click="editUser(user)">Edit</button>
+                <button
+                  type="button"
+                  id="deletebutton"
+                  @click="deleteUser(user)"
+                  v-on:click="onLogout"
+                >Delete
+                </button>
+              </div>
             </tbody>
           </table>
         </div>
@@ -32,6 +41,9 @@
 <script>
 import { mapState } from "vuex";
 import Layout from "../../components/Layout";
+import API, {prepareAuthorization} from "../../api/api";
+import store from "../../store";
+import * as type from "../../types";
 
 export default {
   name: "User",
@@ -44,6 +56,17 @@ export default {
     }),
   },
   methods: {
+    deleteUser(user) {
+      prepareAuthorization();
+      API.delete("user/delete", { data: user })
+        .then((response) => {
+          console.log(response);
+          this.$router.push({ name: "Home" });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     editUser(user) {
       this.$router.push({
         name: "editProfile",
@@ -51,6 +74,16 @@ export default {
           user: user,
         },
       });
+    },
+          onLogout() {
+      window.localStorage.removeItem("VANOA_USER");
+      store.dispatch({
+        type: type.AddUser,
+        user: null,
+      });
+      API.defaults.headers.common.Authorization = null;
+
+      this.$router.push({ name: "Home" });
     },
   },
 };
@@ -82,5 +115,8 @@ export default {
   background: white;
   border-radius: 0.5rem;
   box-sizing: border-box;
+}
+#df {
+  float: right;
 }
 </style>
