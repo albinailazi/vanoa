@@ -37,8 +37,8 @@
           />
         </div>
         <div class="roleContainer">
-          <label name="user.role">Role</label>
-          <select v-model="role" required id="role">
+          <label style="margin-top: 5px" name="user.role">Role</label>
+          <select class="selectionBox" v-model="role" required id="role">
             <option v-for="role in Roles" :key="role._id" v-bind="role.name">{{
               role.name
             }}</option>
@@ -116,3 +116,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.selectionBox{
+  padding: 5px 5px 5px 5px; 
+  margin-top: -25px;
+}
+</style>
