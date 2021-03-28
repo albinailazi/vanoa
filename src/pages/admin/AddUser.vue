@@ -39,14 +39,14 @@
         <div class="roleContainer">
           <label name="user.role">Role</label>
           <select v-model="role" required id="role">
-            <option v-for="role in Roles" :key="role._id" v-bind="role.name">{{
+            <option v-for="role in Roles" :key="role._id" v-bind="role">{{
               role.name
             }}</option>
           </select>
         </div>
 
         <div class="register_button">
-          <button type="submit" name="submitted" @click="registerUser(user)">
+          <button type="submit" name="submitted">
             Add User
           </button>
         </div>
@@ -57,8 +57,6 @@
 
 <script>
 import API from "../../api/api";
-import store from "../../store";
-import * as type from "../../types";
 
 export default {
   name: "AddUser",
@@ -83,18 +81,7 @@ export default {
         password: password,
         role: role,
       })
-        .then((response) => {
-          const userData = {
-            token: response.data.token,
-            user: response.data.user,
-          };
-          store.dispatch({
-            type: type.AddUser,
-            user: response.data.user,
-          });
-          API.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-          window.localStorage.setItem("VANOA_USER", JSON.stringify(userData));
-
+        .then(() => {
           this.$router.push({ name: "userDashboard" });
         })
         .catch((error) => {

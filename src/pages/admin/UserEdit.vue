@@ -13,29 +13,19 @@
       </div>
       <form class="login_box" id="register_form">
         <div class="emailContainer">
-          <label name="user.email">Email</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.email"
-            required
-          />
+          <label name="email">Email</label>
+          <input type="text" class="form-control" v-model="email" required />
         </div>
 
         <div class="usernameContainer">
-          <label name="user.username">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="user.username"
-            required
-          />
+          <label name="username">Username</label>
+          <input type="text" class="form-control" v-model="username" required />
         </div>
 
         <div class="roleContainer">
-          <label name="user.role">Role</label>
-          <select v-model="user.role" required>
-            <option v-for="role in Roles" :key="role._id" v-bind="role.name">{{
+          <label name="role">Role</label>
+          <select v-model="role" required>
+            <option v-for="role in Roles" :key="role._id" v-bind="role">{{
               role.name
             }}</option>
           </select>
@@ -44,7 +34,11 @@
         <router-link to="/UserDashboard"
           ><button id="button-id">Back</button></router-link
         >
-        <button type="button" id="button-id" @click="updateUser(user)">
+        <button
+          type="button"
+          id="button-id"
+          @click="updateUser({ email, username, role })"
+        >
           Save
         </button>
       </form>
@@ -61,6 +55,9 @@ export default {
   data() {
     return {
       user: {},
+      email: "",
+      username: "",
+      role: "",
       Roles: [],
     };
   },
@@ -68,7 +65,12 @@ export default {
     updateUser(user) {
       prepareAuthorization();
 
-      API.post("user/update", user)
+      API.post("user/update", {
+        ...this.user,
+        email: user.email,
+        username: user.username,
+        role: user.role,
+      })
         .then((response) => {
           this.$router.push({ name: "userDashboard" });
         })
@@ -87,9 +89,12 @@ export default {
         });
     },
   },
-
   mounted() {
+    console.log("this.$route.params.user", this.$route.params.user);
     this.user = this.$route.params.user;
+    this.email = this.$route.params.user.email;
+    this.username = this.$route.params.user.username;
+    this.role = this.$route.params.user.role;
     this.getRoles();
   },
 };

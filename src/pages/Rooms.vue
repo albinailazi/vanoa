@@ -118,7 +118,9 @@ export default {
     },
   },
   mounted() {
-    this.fetchRooms();
+    setTimeout(() => {
+      this.fetchRooms();
+    }, 3000);
   },
 };
 </script>

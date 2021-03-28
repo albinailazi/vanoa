@@ -119,7 +119,8 @@ export default {
     deleteUser(user) {
       prepareAuthorization();
       API.delete("user/delete", { data: user })
-        .then(() => {
+        .then((res) => {
+          console.log(res);
           this.getAllUsers();
         })
         .catch((error) => {
