@@ -67,7 +67,7 @@
 <script>
 /* eslint-disable */
 
-import API, { prepareAuthorization } from "../api/api";
+import API, { prepareAuthorization } from "../../api/api";
 export default {
   name: "RoomEdit",
   data() {

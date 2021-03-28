@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import API from "../api/api";
-import store from "../store";
-import * as type from "../types";
+import API from "../../api/api";
+import store from "../../store";
+import * as type from "../../types";
 
 export default {
   name: "AddUser",

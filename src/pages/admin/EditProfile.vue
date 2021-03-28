@@ -14,19 +14,29 @@
 
       <form class="login_box" id="register_form">
         <div class="emailContainer">
-          <label name="role.name">Name</label>
+          <label name="user.email">Email</label>
           <input
             type="text"
             class="form-control"
-            v-model="role.name"
+            v-model="user.email"
             required
           />
         </div>
 
-        <router-link to="/RoleDashboard"
+        <div class="usernameContainer">
+          <label name="user.username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            v-model="user.username"
+            required
+          />
+        </div>
+
+        <router-link to="/UserDashboard"
           ><button id="button-id">Back</button></router-link
         >
-        <button type="button" id="button-id" @click="updateRole(role)">
+        <button type="button" id="button-id" @click="updateUser(user)">
           Save
         </button>
       </form>
@@ -37,20 +47,20 @@
 <script>
 /* eslint-disable */
 
-import API, { prepareAuthorization } from "../api/api";
+import API, { prepareAuthorization } from "../../api/api";
 export default {
-  name: "RoleEdit",
- data() {
+  name: "EditProfile",
+  data() {
     return {
-      role: {},
+      user: {},
     };
   },
   methods: {
-    updateRole(role) {
+    updateUser(user) {
       prepareAuthorization();
-      API.post("role/update", role)
+      API.post("user/update", user)
         .then((response) => {
-          this.$router.push({ name: "roleDashboard" });
+          this.$router.push({ name: "user" });
         })
         .catch((error) => {
           console.log(error);
@@ -58,7 +68,7 @@ export default {
     },
   },
   mounted() {
-    this.role = this.$route.params.role;
+    this.user = this.$route.params.user;
   },
 };
 </script>

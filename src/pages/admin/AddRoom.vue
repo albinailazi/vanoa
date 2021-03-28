@@ -7,7 +7,7 @@
       <form
         class="login_box"
         id="register_form"
-        @submit.prevent="onSubmit(title, description, image, slug)"
+        @submit.prevent="onSubmit(title, description, price, image, slug)"
       >
         <!-- <?php echo $res && $res != '' ? '<p style="color:red">'. $res .'</p>' : ''; ?> -->
         <div class="">
@@ -16,7 +16,16 @@
         </div>
         <div class="">
           <label for="description">Description</label>
-          <input type="text" v-model="description" name="description" id="description" />
+          <input
+            type="text"
+            v-model="description"
+            name="description"
+            id="description"
+          />
+        </div>
+        <div class="">
+          <label for="price">Price</label>
+          <input type="text" v-model="price" name="price" id="price" />
         </div>
         <div class="">
           <label for="image">Image</label>
@@ -27,44 +36,42 @@
           <label for="slug">Slug</label>
           <input type="text" v-model="slug" name="slug" id="slug" />
         </div>
-        
-      
 
         <div class="register_button">
-          <button type="submit" name="submitted">Add Service</button>
+          <button type="submit" name="submitted">Add Room</button>
         </div>
-      
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import API, { prepareAuthorization} from "../api/api";
+import API, { prepareAuthorization } from "../../api/api";
 
 export default {
-  name: "AddService",
+  name: "AddRoom",
   data() {
     return {
       title: null,
       description: null,
+      price: null,
       image: null,
       slug: null,
     };
   },
   methods: {
-
-    onSubmit(title, description, image, slug) {
+    onSubmit(title, description, price, image, slug) {
       prepareAuthorization();
-      API.post("service/create", {
+      API.post("room/create", {
         title: title,
         description: description,
+        price: price,
         image: image,
-        slug: slug
+        slug: slug,
       })
         .then((response) => {
           console.log(response);
-          this.$router.push({ name: "serviceDashboard" });
+          this.$router.push({ name: "roomDashboard" });
         })
         .catch((error) => {
           console.log("error", error);

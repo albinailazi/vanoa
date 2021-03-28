@@ -14,32 +14,26 @@
           <label for="name"> Name </label>
           <input type="text" v-model="name" name="name" id="name" />
         </div>
-       
-        
-      
 
         <div class="register_button">
           <button type="submit" name="submitted">Add Role</button>
         </div>
-      
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import API, { prepareAuthorization} from "../api/api";
+import API, { prepareAuthorization } from "../../api/api";
 
 export default {
   name: "AddRole",
   data() {
     return {
       name: null,
-     
     };
   },
   methods: {
-
     onSubmit(name) {
       prepareAuthorization();
       API.post("role/create", {

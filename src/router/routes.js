@@ -6,22 +6,22 @@ import Services from "../pages/Services.vue";
 import Contact from "../pages/Contact.vue";
 import Register from "../pages/Register.vue";
 import SingleRoom from "../pages/SingleRoom.vue";
-import User from "../pages/User.vue";
-import Admin from "../pages/Admin.vue";
-import UserDashboard from "../pages/UserDashboard.vue";
-import RoomDashboard from "../pages/RoomDashboard.vue";
-import ServiceDashboard from "../pages/ServiceDashboard.vue";
-import AddUser from "../pages/AddUser.vue";
-import UserEdit from "../pages/UserEdit.vue";
-import AddRoom from "../pages/AddRoom.vue";
-import RoomEdit from "../pages/RoomEdit.vue";
-import ServiceEdit from "../pages/ServiceEdit.vue";
-import AddService from "../pages/AddService.vue";
-import EditProfile from "../pages/EditProfile.vue";
-import ContactDashboard from "../pages/ContactDashboard.vue";
-import RoleDashboard from "../pages/RoleDashboard.vue";
-import AddRole from "../pages/AddRole.vue";
-import RoleEdit from "../pages/RoleEdit.vue";
+import User from "../pages/admin/User.vue";
+import Admin from "../pages/admin/Admin.vue";
+import UserDashboard from "../pages/admin/UserDashboard.vue";
+import RoomDashboard from "../pages/admin/RoomDashboard.vue";
+import ServiceDashboard from "../pages/admin/ServiceDashboard.vue";
+import AddUser from "../pages/admin/AddUser.vue";
+import UserEdit from "../pages/admin/UserEdit.vue";
+import AddRoom from "../pages/admin/AddRoom.vue";
+import RoomEdit from "../pages/admin/RoomEdit.vue";
+import ServiceEdit from "../pages/admin/ServiceEdit.vue";
+import AddService from "../pages/admin/AddService.vue";
+import EditProfile from "../pages/admin/EditProfile.vue";
+import ContactDashboard from "../pages/admin/ContactDashboard.vue";
+import RoleDashboard from "../pages/admin/RoleDashboard.vue";
+import AddRole from "../pages/admin/AddRole.vue";
+import RoleEdit from "../pages/admin/RoleEdit.vue";
 
 export const routes = [
   { path: "/", name: "Home", component: Home },
