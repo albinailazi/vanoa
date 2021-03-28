@@ -9,7 +9,7 @@
         id="register_form"
         @submit.prevent="onSubmit(title, description, price, image, slug)"
       >
-        <!-- <?php echo $res && $res != '' ? '<p style="color:red">'. $res .'</p>' : ''; ?> -->
+       
         <div class="">
           <label for="title"> Title </label>
           <input type="text" v-model="title" name="title" id="title" />

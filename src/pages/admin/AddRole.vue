@@ -9,7 +9,6 @@
         id="register_form"
         @submit.prevent="onSubmit(name)"
       >
-        <!-- <?php echo $res && $res != '' ? '<p style="color:red">'. $res .'</p>' : ''; ?> -->
         <div class="">
           <label for="name"> Name </label>
           <input type="text" v-model="name" name="name" id="name" />

@@ -59,7 +59,7 @@
                   />
                 </div>
 
-                <!-- <img src="./dist/images/aboutUs_hotel.jpg" alt=""> -->
+                
               </div>
             </div>
 
