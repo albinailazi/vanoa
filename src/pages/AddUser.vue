@@ -4,8 +4,13 @@
       <div class="logo_footer white seperator">
         <span>V</span>
       </div>
-      <form class="login_box" id="register_form"
-        @submit.prevent="onSubmit(email, username, password, passwordConfirm)">
+      <form
+        class="login_box"
+        id="register_form"
+        @submit.prevent="
+          onSubmit(email, username, password, passwordConfirm, role)
+        "
+      >
         <div class="emailContainer">
           <label for="email"> Email </label>
           <input type="email" v-model="email" name="email" id="email" />
@@ -31,18 +36,20 @@
             id="confirmPassword"
           />
         </div>
-         <div class="roleContainer">
-                <label name="user.role">Role</label>
-                <select v-model="user.role" required>
-                  <option  v-for="role in Roles" :key="role._id" v-bind="role.name">{{role.name}}</option>
-                </select>
-            </div>
-        
+        <div class="roleContainer">
+          <label name="user.role">Role</label>
+          <select v-model="role" required id="role">
+            <option v-for="role in Roles" :key="role._id" v-bind="role.name">{{
+              role.name
+            }}</option>
+          </select>
+        </div>
 
         <div class="register_button">
-          <button type="submit" name="submitted" @click="registerUser(user)">Add User</button>
+          <button type="submit" name="submitted" @click="registerUser(user)">
+            Add User
+          </button>
         </div>
-      
       </form>
     </div>
   </div>
@@ -61,19 +68,20 @@ export default {
       username: null,
       password: null,
       passwordConfirm: null,
-      user:{},
+      role: null,
+      user: {},
       Roles: [],
     };
   },
   methods: {
-
-    onSubmit(email, username, password, passwordConfirm) {
+    onSubmit(email, username, password, passwordConfirm, role) {
       if (password !== passwordConfirm) return;
-    
-      API.post("user/register", {
+
+      API.post("user/create", {
         email: email,
         username: username,
         password: password,
+        role: role,
       })
         .then((response) => {
           const userData = {
@@ -93,18 +101,18 @@ export default {
           console.log("error", error);
         });
     },
-      getRoles() {
-          API.get('role/get-all')
-          .then(response => {
-            this.Roles = response.data.roles;
-          })
-         .catch((error) => {
-                 console.log(error); 
-             });
-        },
+    getRoles() {
+      API.get("role/get-all")
+        .then((response) => {
+          this.Roles = response.data.roles;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
-    mounted() {
-            this.getRoles();
-        }
+  mounted() {
+    this.getRoles();
+  },
 };
 </script>

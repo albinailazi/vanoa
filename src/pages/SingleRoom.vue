@@ -31,9 +31,9 @@
                   v-bind:key="room._id"
                 >
                   <li class="rooms_display">
-                   <img width="60" height="60" v-bind:src="room.image" />
+                    <img width="60" height="60" v-bind:src="room.image" />
                     <p v-if="!room.image">{{ NoImageSelected }}</p>
-                     <router-link :to="'/singleRoom/' + room.slug">
+                    <router-link :to="'/singleRoom/' + room.slug">
                       {{ room.title }}
                     </router-link>
                     <span> {{ room.price }}</span>
@@ -49,7 +49,7 @@
               <div class="row has_gutter">
                 <div class="column-12 column-mob-12">
                   <div class="rooms_img">
-                    <img width="60" height="60" v-bind:src="Room.image" />
+                    <img width="600" height="600" v-bind:src="Room.image" />
                     <p v-if="!Room.image">{{ NoImageSelected }}</p>
                   </div>
                 </div>
@@ -85,42 +85,44 @@ import Layout from "../components/Layout.vue";
 import API from "../api/api";
 export default {
   components: { Layout },
-  name: "SingleRoom",
+  name: "singleroom",
   data() {
     return {
       Vanoa: "VANOA",
       NoImageSelected: "No Image Selected",
-      BestRoms: "Best Rooms",
+      BestRooms: "Best Rooms",
       Reservations: "Reservations",
       rooms: [],
       Room: {},
+      slug: "",
     };
   },
   methods: {
     fetchRooms() {
       API.get("room/get-all")
         .then((response) => {
-          console.log(response);
           this.rooms = response.data.rooms;
         })
         .catch((error) => {
           console.log("error", error);
         });
     },
-    /*fetchRoom(slug) {
-      API.get("room/get-room",slug)
-        .then((response) => {
-          console.log(response);
-          if(response.data.room.slug == slug){
-          this.Room = this.response.data.room;
-          }
+    fetchRoom() {
+      API.get("http://localhost:4000/api/room/get-room", {
+        params: {
+          slug: this.$route.params.slug,
+        },
+      })
+        .then((res) => {
+          this.Room = res.data.room;
         })
         .catch((error) => {
           console.log("error", error);
         });
-    },*/
+    },
   },
   mounted() {
+    this.fetchRoom();
     this.fetchRooms();
   },
 };

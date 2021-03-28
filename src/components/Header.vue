@@ -46,13 +46,13 @@
             </li>
 
             <li v-if="user">
-               <router-link class="nav-link" to="/user">
+              <router-link class="nav-link" to="/user">
                 Profile
               </router-link>
             </li>
 
-             <li v-if="user">
-               <router-link class="nav-link" to="/UserDashboard">
+            <li v-if="user && user.role === 'admin'">
+              <router-link class="nav-link" to="/UserDashboard">
                 Dashboard
               </router-link>
             </li>
@@ -66,7 +66,6 @@
                 Logout
               </a>
             </li>
-            
 
             <!-- <li>
               <a href="logout.php">Logout</a>
