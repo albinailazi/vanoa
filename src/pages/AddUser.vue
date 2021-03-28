@@ -31,6 +31,13 @@
             id="confirmPassword"
           />
         </div>
+         <div class="roleContainer">
+                <label name="user.role">Role</label>
+                <select v-model="user.role" required>
+                  <option  v-for="role in Roles" :key="role._id" v-bind="role.name">{{role.name}}</option>
+                </select>
+            </div>
+        
 
         <div class="register_button">
           <button type="submit" name="submitted" @click="registerUser(user)">Add User</button>
@@ -54,6 +61,8 @@ export default {
       username: null,
       password: null,
       passwordConfirm: null,
+      user:{},
+      Roles: [],
     };
   },
   methods: {
@@ -84,6 +93,18 @@ export default {
           console.log("error", error);
         });
     },
+      getRoles() {
+          API.get('role/get-all')
+          .then(response => {
+            this.Roles = response.data.roles;
+          })
+         .catch((error) => {
+                 console.log(error); 
+             });
+        },
   },
+    mounted() {
+            this.getRoles();
+        }
 };
 </script>
