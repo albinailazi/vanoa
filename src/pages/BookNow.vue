@@ -8,78 +8,78 @@
     </div>
     </div>
 
-<h1>{{Room.description}}</h1>
+<h1>{{Room.image}}</h1>
 
 
 <form
         class="login_box"
-        id="login_form"
+        id="box"
         @submit.prevent="payNow(firstname, lastname, city, address, phone, email, idnumber, cardNumber, cardHolder, accountNumber, expMM, expYY, cvv)"
       >
 
     <div class="usernameContainer">
-          <label for="firstname">Name</label>
+          <label for="firstname" id="label">Name</label>
           <input type="text" v-model="firstname" name="firstname" id="firstname" />
     </div>
 
     <div class="usernameContainer">
-          <label for="lastname">Surname</label>
+          <label for="lastname" id="label">Surname</label>
           <input type="text" v-model="lastname" name="lastname" id="lastname" />
     </div>
 
     <div class="usernameContainer">
-          <label for="city">City</label>
+          <label for="city" id="label">City</label>
           <input type="text" v-model="city" name="city" id="city" />
     </div>
 
     <div class="usernameContainer">
-          <label for="address">Address</label>
+          <label for="address" id="label">Address</label>
           <input type="text" v-model="address" name="address" id="address" />
     </div>
     
     <div class="usernameContainer">
-          <label for="phone">Phone</label>
+          <label for="phone" id="label">Phone</label>
           <input type="text" v-model="phone" name="phone" id="phone" />
     </div>
 
     <div class="usernameContainer">
-          <label for="email">Email address</label>
+          <label for="email" id="label">Email address</label>
           <input type="text" v-model="email" name="email" id="email" />
     </div>
 
     <div class="usernameContainer">
-          <label for="idnumber">Id number</label>
+          <label for="idnumber" id="label">Id number</label>
           <input type="text" v-model="idnumber" name="idnumber" id="idnumber" />
     </div>
 
      <div class="usernameContainer">
-          <label for="cardNumber">Card Number</label>
+          <label for="cardNumber" id="label">Card Number</label>
           <input type="text" v-model="cardNumber" name="cardNumber" id="cardNumber" />
     </div>
 
     <div class="usernameContainer">
-          <label for="cardHolder">card holder</label>
+          <label for="cardHolder" id="label">card holder</label>
           <input type="text" v-model="cardHolder" name="cardHolder" id="cardHolder" />
     </div>
 
     <div class="usernameContainer">
-          <label for="accountNumber">account no.</label>
+          <label for="accountNumber" id="label">account no.</label>
           <input type="text" v-model="accountNumber" name="accountNumber" id="accountNumber" />
     </div>
 
     <div class="usernameContainer">
-          <label for="MM">expiration </label>
+          <label for="MM" id="label">expiration </label>
           <input type="text" v-model="expMM" placeholder="MM" />
           <input type="text" v-model="expYY" placeholder=" YY" />
     </div>
 
     <div class="usernameContainer">
-          <label for="cvv">CVV</label>
+          <label for="cvv" id="label">CVV</label>
           <input type="text" v-model="cvv" placeholder="CVV" />
     </div>
 
     <div class="usernameContainer">
-          <label>Total</label>
+          <label id="label">Total</label>
           <input type="text" value="200" disabled style="text-align:right"/>
     </div>
 
@@ -174,3 +174,17 @@ export default {
   },
 };
 </script>
+
+<style>
+#box{
+    margin-left:500px;
+    margin-right: 500px;
+    margin-top:55px;
+}
+
+#label{
+    float:left;
+    font-style: italic;
+}
+
+</style>
