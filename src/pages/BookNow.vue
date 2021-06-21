@@ -1,15 +1,29 @@
 <template>
 <Layout>
-    <div class="login-body" style="padding-top:150px; padding-bottom:150px;">
-    <div class="login-content">
-      <div class="logo_footer white seperator">
-        <span>V</span>
-      </div>
-    </div>
-    </div>
 
-<h1>{{Room.image}}</h1>
+<div class="About">
+      <section class="block_section banner_section" style="background-image: url('content/images/payment.png');">
+        <div class="banner_content">
+          <div class="banner_logo">
+            <span>V</span>
+          </div>
+          <div class="banner_heading">
+            <h1>{{ Vanoa }}</h1>
+          </div>
+        </div>
+      </section>
 
+      <section class="block_section about_section">
+        <div class="container">
+          <div class="border_title seperator white">
+            <span>V</span>
+          </div>
+        </div>
+      </section>
+</div>
+
+
+<img id="imgstyle" v-bind:src="Room.image" />
 
 <form
         class="login_box"
@@ -177,14 +191,27 @@ export default {
 
 <style>
 #box{
-    margin-left:500px;
-    margin-right: 500px;
-    margin-top:55px;
+    float:right;
+    margin-top: -200px;
+    margin-right:220px;
+
+
 }
 
 #label{
     float:left;
     font-style: italic;
 }
+
+#imgstyle{
+    width: 500px;
+    height: 300px;
+    margin-top:30px;
+    box-shadow: 10px 10px 40px 5px rgb(0 0 0 / 50%);
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+
 
 </style>
