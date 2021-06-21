@@ -6,6 +6,7 @@ import Services from "../pages/Services.vue";
 import Contact from "../pages/Contact.vue";
 import Register from "../pages/Register.vue";
 import SingleRoom from "../pages/SingleRoom.vue";
+import BookNow from "../pages/BookNow.vue";
 import User from "../pages/admin/User.vue";
 import Admin from "../pages/admin/Admin.vue";
 import UserDashboard from "../pages/admin/UserDashboard.vue";
@@ -23,6 +24,7 @@ import RoleDashboard from "../pages/admin/RoleDashboard.vue";
 import AddRole from "../pages/admin/AddRole.vue";
 import RoleEdit from "../pages/admin/RoleEdit.vue";
 
+
 export const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/login", name: "Login", component: Login },
@@ -32,15 +34,12 @@ export const routes = [
   { path: "/contact", name: "contact", component: Contact },
   { path: "/register", name: "register", component: Register },
   { path: "/singleroom/:slug", name: "singleroom", component: SingleRoom },
+  { path: "/booknow/:slug", name: "booknow", component: BookNow },
   { path: "/user", name: "user", component: User },
   { path: "/admin", name: "admin", component: Admin },
   { path: "/userDashboard", name: "userDashboard", component: UserDashboard },
   { path: "/roomDashboard", name: "roomDashboard", component: RoomDashboard },
-  {
-    path: "/serviceDashboard",
-    name: "serviceDashboard",
-    component: ServiceDashboard,
-  },
+  { path: "/serviceDashboard", name: "serviceDashboard", component: ServiceDashboard },
   { path: "/addUser", name: "addUser", component: AddUser },
   { path: "/userEdit", name: "userEdit", component: UserEdit },
   { path: "/addRoom", name: "addRoom", component: AddRoom },
@@ -48,11 +47,7 @@ export const routes = [
   { path: "/serviceEdit", name: "serviceEdit", component: ServiceEdit },
   { path: "/addService", name: "addService", component: AddService },
   { path: "/editProfile", name: "editProfile", component: EditProfile },
-  {
-    path: "/contactDashboard",
-    name: "contactDashboard",
-    component: ContactDashboard,
-  },
+  { path: "/contactDashboard", name: "contactDashboard", component: ContactDashboard },
   { path: "/roleDashboard", name: "roleDashboard", component: RoleDashboard },
   { path: "/addRole", name: "addRole", component: AddRole },
   { path: "/roleEdit", name: "roleEdit", component: RoleEdit },

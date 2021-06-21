@@ -66,14 +66,22 @@
               </div>
               <div class="column-7 column-mob-12">
                 <div class="rooms_content">
-                  <p>{{ Room.description }}</p>
+                  <p>{{ Room.description }}</p> 
                 </div>
               </div>
             </div>
           </div>
+           
         </section>
+      <div class="room_title" id="booknow">
+         <router-link :to="'/booknow/' + this.$route.params.slug">
+                        {{ BookNow }}
+                      </router-link>
+                      
+      </div>
       </div>
     </div>
+   
   </Layout>
 </template>
 
@@ -92,6 +100,7 @@ export default {
       rooms: [],
       Room: {},
       slug: "",
+      BookNow: "BOOK NOW",
     };
   },
   methods: {
@@ -104,6 +113,7 @@ export default {
           console.log("error", error);
         });
     },
+    
     fetchRoom() {
       API.get("http://localhost:4000/api/room/get-room", {
         params: {
@@ -124,3 +134,12 @@ export default {
   },
 };
 </script>
+
+<style>
+
+#booknow{
+  padding-right:585px;
+}
+
+
+</style>
