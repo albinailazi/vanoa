@@ -94,7 +94,7 @@
 
     <div class="usernameContainer">
           <label id="label">Total</label>
-          <input type="text" value="200" disabled style="text-align:right"/>
+          <input type="text" v-model="Room.price" disabled style="text-align:right"/>
     </div>
 
     <div class="login_button">
