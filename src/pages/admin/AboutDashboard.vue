@@ -66,35 +66,14 @@
           <table>
             <thead>
               <tr id="tr-color">
-                <th id="th-padding">Name</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Message</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th id="th-padding">Content</th>
               </tr>
             </thead>
 
             <tbody id="tr-color">
-              <tr v-for="contact in Contacts" :key="contact._id">
-                <td id="th-padding">{{ contact.name }}</td>
-                <td id="th-padding">{{ contact.email }}</td>
-                <td id="th-padding">{{ contact.subject }}</td>
-                <td id="th-padding">{{ contact.message }}</td>
-                <td id="th-padding">{{ contact.createdAt }}</td>
-                <td id="th-padding">{{ contact.updatedAt }}</td>
+              <tr v-for="about in About" :key="about._id">
+                <td id="th-padding">{{ about.content }}</td>
 
-                <div id="df">
-                  <td>
-                    <button
-                      type="button"
-                      id="deletebutton"
-                      @click="deleteContact(contact)"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </div>
               </tr>
             </tbody>
           </table>

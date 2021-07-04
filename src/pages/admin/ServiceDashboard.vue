@@ -71,6 +71,7 @@
                 <th>Image</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+                <th>Price</th>
               </tr>
             </thead>
 
@@ -81,6 +82,7 @@
                 <td id="th-padding">{{ service.image }}</td>
                 <td id="th-padding">{{ service.createdAt }}</td>
                 <td id="th-padding">{{ service.updatedAt }}</td>
+                <td id="th-padding">{{ service.price }}</td>
 
                 <div id="df">
                   <td>

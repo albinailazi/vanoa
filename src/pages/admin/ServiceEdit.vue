@@ -43,6 +43,16 @@
           />
         </div>
 
+          <div class="usernameContainer">
+          <label name="service.price">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            v-model="service.price"
+            required
+          />
+        </div>
+
         <router-link to="/ServiceDashboard"
           ><button id="button-id">Back</button></router-link
         >

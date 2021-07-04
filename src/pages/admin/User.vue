@@ -15,8 +15,8 @@
             <tbody>
               <td id="editpadding" v-if="user">{{ user.username }}</td>
               <td id="editpadding" v-if="user">{{ user.email }}</td>
-              <td id="editpadding" v-if="user">{{ user.createdAt }}</td>
-              <td id="editpadding" v-if="user">{{ user.updatedAt }}</td>
+              <td id="editpadding" v-if="user">{{ user.createdAt_formated }}</td>
+              <td id="editpadding" v-if="user">{{ user.updatedAt_formated }}</td>
                 <div id="df">
                 <button id="editbutton" @click="editUser(user)">Edit</button>
                 <button
@@ -52,7 +52,19 @@ export default {
   },
   computed: {
     ...mapState({
-      user: (state) => state.user,
+      user: (state) => {
+        let u = state.user;
+
+        let dt = u.createdAt.toString().split('T')[0].split('-');
+        let time = u.createdAt.toString().split('T')[1].split(':');
+        u.createdAt_formated = dt[2] + '.' + dt[1] + '.' + dt[0] + ' ' + time[0] + ':' + time[1];
+
+        let dt2 = u.updatedAt.toString().split('T')[0].split('-');
+        let time2 = u.updatedAt.toString().split('T')[1].split(':');
+        u.updatedAt_formated = dt2[2] + '.' + dt2[1] + '.' + dt2[0] + ' ' + time2[0] + ':' + time2[1];
+
+        return u;
+      },
     }),
   },
   methods: {
@@ -86,6 +98,10 @@ export default {
       this.$router.push({ name: "Home" });
     },
   },
+
+  mounted(){
+
+  }
 };
 </script>
 

@@ -23,6 +23,8 @@ import ContactDashboard from "../pages/admin/ContactDashboard.vue";
 import RoleDashboard from "../pages/admin/RoleDashboard.vue";
 import AddRole from "../pages/admin/AddRole.vue";
 import RoleEdit from "../pages/admin/RoleEdit.vue";
+import AboutDashboard from "../pages/admin/AboutDashboard.vue";
+import Bill from "../pages/Bill.vue";
 
 
 export const routes = [
@@ -51,4 +53,6 @@ export const routes = [
   { path: "/roleDashboard", name: "roleDashboard", component: RoleDashboard },
   { path: "/addRole", name: "addRole", component: AddRole },
   { path: "/roleEdit", name: "roleEdit", component: RoleEdit },
+  { path: "/aboutDashboard", name: "aboutDashboard", component: AboutDashboard },
+  { path: "/bill/:id", name: "bill", component: Bill },
 ];

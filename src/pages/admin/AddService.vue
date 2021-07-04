@@ -33,6 +33,11 @@
           <input type="text" v-model="slug" name="slug" id="slug" />
         </div>
 
+        <div class="">
+          <label for="slug">Price</label>
+          <input type="text" v-model="price" name="price" id="price" />
+        </div>
+
         <div class="register_button">
           <button type="submit" name="submitted">Add Service</button>
         </div>

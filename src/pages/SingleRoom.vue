@@ -74,7 +74,7 @@
            
         </section>
       <div class="room_title" id="booknow">
-         <router-link :to="'/booknow/' + this.$route.params.slug">
+         <router-link :to="'/booknow/' + this.$route.params.slug" style="margin-bottom:20px;">
                         {{ BookNow }}
                       </router-link>
                       

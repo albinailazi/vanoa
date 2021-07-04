@@ -7,6 +7,7 @@ import store from './store.js'
 
 
 
+
 Vue.use(VueGoogleMap, {
   load: {
     apiKey: 'your-api-key',
@@ -20,8 +21,11 @@ const router = new VueRouter({
   routes
 })
 
+
+
 new Vue({
   router,
   store,
   render: h => h(App),
 }).$mount('#app')
+
