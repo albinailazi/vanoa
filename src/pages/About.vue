@@ -124,20 +124,27 @@
             </div>
             
 
-          <div class="row" v-for="rating in Ratings"
+         
+
+
+            </div>
+          <div class="row" style="text-align:left; display:bock; margin-top: 50px; padding-left:40px;"
+          v-for="rating in Ratings"
                   v-bind:item="rating"
-                  v-bind:key="rating._id" >
+                  v-bind:key="rating._id">
                   
             <div class="column-12" style="text-align: left;">
+              <div class="column-6"  
+              style="padding: 10px;box-shadow: 2px 2px 5px 1px rgb(177 126 100 / 50%);margin-top: 10px;"
+               >
               {{rating.username}}
-            <hr style="border:5px;">
+              {{showStars(rating.stars)}}
+            <hr style="border:5px;" />
               <p style="font-style:italic">{{rating.comment}}</p>
+              </div>
+              
             </div>
           </div> 
-
-
-            </div>
-
                
         </div>
 
@@ -183,6 +190,17 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+
+    showStars(stars){
+      let starsContent = '(Not rated)';
+
+      if(stars > 0)
+        starsContent = '';
+        
+      for(let i = 1; i<=stars; i++)
+        starsContent+= '★';
+      return starsContent;
     },
 
     getAllRatings(){
